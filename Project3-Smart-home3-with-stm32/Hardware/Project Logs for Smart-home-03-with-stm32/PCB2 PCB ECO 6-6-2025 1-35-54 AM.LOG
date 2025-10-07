@@ -1,0 +1,94 @@
+Added Component: Designator=J?(HDR_F_1X20)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "HDRF20"; VariantName = "[No Variations]"
+Added Component: Designator=J?(HDR_F_1X20)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "HDRF20"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J?-2
+Added Pin To Net: NetName=GND Pin=J?-19
+Added Pin To Net: NetName=GND Pin=J?-20
+Added Pin To Net: NetName=3.3V Pin=J?-1
+Added Pin To Net: NetName=3.3V Pin=J?-18
+Added Net: Name=3.3V
+Added Pin To Net: NetName=5V Pin=J?-3
+Added Net: Name=5V
+Added Pin To Net: NetName=PA0 Pin=J?-5
+Added Net: Name=PA0
+Added Pin To Net: NetName=PA1 Pin=J?-6
+Added Net: Name=PA1
+Added Pin To Net: NetName=PA2 Pin=J?-7
+Added Net: Name=PA2
+Added Pin To Net: NetName=PA3 Pin=J?-8
+Added Net: Name=PA3
+Added Pin To Net: NetName=PA4 Pin=J?-9
+Added Net: Name=PA4
+Added Pin To Net: NetName=PA5 Pin=J?-10
+Added Net: Name=PA5
+Added Pin To Net: NetName=PA6 Pin=J?-11
+Added Net: Name=PA6
+Added Pin To Net: NetName=PA7 Pin=J?-12
+Added Net: Name=PA7
+Added Pin To Net: NetName=PA8 Pin=J?-16
+Added Net: Name=PA8
+Added Pin To Net: NetName=PA9 Pin=J?-15
+Added Net: Name=PA9
+Added Pin To Net: NetName=PA10 Pin=J?-14
+Added Net: Name=PA10
+Added Pin To Net: NetName=PA11 Pin=J?-13
+Added Net: Name=PA11
+Added Pin To Net: NetName=PA12 Pin=J?-12
+Added Net: Name=PA12
+Added Pin To Net: NetName=PA15 Pin=J?-11
+Added Net: Name=PA15
+Added Pin To Net: NetName=PB0 Pin=J?-13
+Added Net: Name=PB0
+Added Pin To Net: NetName=PB1 Pin=J?-14
+Added Net: Name=PB1
+Added Pin To Net: NetName=PB3 Pin=J?-10
+Added Net: Name=PB3
+Added Pin To Net: NetName=PB4 Pin=J?-9
+Added Net: Name=PB4
+Added Pin To Net: NetName=PB5 Pin=J?-8
+Added Net: Name=PB5
+Added Pin To Net: NetName=PB6 Pin=J?-7
+Added Net: Name=PB6
+Added Pin To Net: NetName=PB7 Pin=J?-6
+Added Net: Name=PB7
+Added Pin To Net: NetName=PB8 Pin=J?-5
+Added Net: Name=PB8
+Added Pin To Net: NetName=PB9 Pin=J?-4
+Added Net: Name=PB9
+Added Pin To Net: NetName=PB10 Pin=J?-15
+Added Net: Name=PB10
+Added Pin To Net: NetName=PB11 Pin=J?-16
+Added Net: Name=PB11
+Added Pin To Net: NetName=PB12 Pin=J?-20
+Added Net: Name=PB12
+Added Pin To Net: NetName=PB13 Pin=J?-19
+Added Net: Name=PB13
+Added Pin To Net: NetName=PB14 Pin=J?-18
+Added Net: Name=PB14
+Added Pin To Net: NetName=PB15 Pin=J?-17
+Added Net: Name=PB15
+Added Pin To Net: NetName=PC13 Pin=J?-2
+Added Net: Name=PC13
+Added Pin To Net: NetName=PC14 Pin=J?-3
+Added Net: Name=PC14
+Added Pin To Net: NetName=PC15 Pin=J?-4
+Added Net: Name=PC15
+Added Pin To Net: NetName=RESET Pin=J?-17
+Added Net: Name=RESET
+Added Pin To Net: NetName=VBAT Pin=J?-1
+Added Net: Name=VBAT
+Added Member To Class: ClassName=Sheet1 Member=Component J? HDRF20
+Added Member To Class: ClassName=Sheet1 Member=Component J? HDRF20

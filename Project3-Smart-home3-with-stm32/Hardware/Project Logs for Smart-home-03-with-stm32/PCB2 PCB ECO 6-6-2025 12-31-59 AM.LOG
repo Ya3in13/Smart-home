@@ -1,0 +1,110 @@
+Removed Pin From Net: NetName=NetD?_2 Pin=D?-2
+Removed Pin From Net: NetName=NetD?_1 Pin=R?-1
+Removed Pin From Net: NetName=NetD?_2 Pin=R?-2
+Removed Pin From Net: NetName=NetQ?_3 Pin=R?-2
+Change Component Footprint: Designator=R? Old Footprint=R025W_AX04 New Footprint=R0805
+Change Component Footprint: Designator=R? Old Footprint=R0805 New Footprint=R025W_AX04
+Change Component Comment : Designator=R? Old Comment=1K New Comment=2.2K
+Change Component Comment : Designator=R? Old Comment=2.2K New Comment=1K
+Change component parameters: Designator = "R?" ("R?"); Footprint = "R0805"; UniqueID = "\CUYNKFNI" ("\CUYNKFNI")
+Change component parameters (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DIST#"; Value = "MOUSER"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF"; Value = "KOA SPEER"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF_P#"; Value = "RK73H1ETTP4701F"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM"; Value = "0.063W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM2"; Value = "1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PRICE"; Value = "100= 0.5$"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R?" ("R?"); Footprint = "R025W_AX04"; UniqueID = "\HSAEBOGR" ("\HSAEBOGR")
+Change component parameters (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DIST#"; Value = "MOUSER"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF"; Value = "-"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF_P#"; Value = "-"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM"; Value = "-W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM2"; Value = "1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PRICE"; Value = "100= 0.5$"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = "2.2K"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found 0805 LED
+Added Component: Designator=K?(REL_SPDT_5_2216)
+Add component (AddParameter): Name = "MANF"; Value = "TIANBO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "HJR-3FF--12VDC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "12V, 30mA, 400Ohm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "7A, 240VAC /10A 120VAC/24VDC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "RELAY_SPDT"; VariantName = "[No Variations]"
+Added Component: Designator=K?(REL_SPDT_5_1611)
+Add component (AddParameter): Name = "MANF"; Value = "TTI"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "TRBS-6VDC-SA-CL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "12V, 17mA, 720Ohm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "1A, 125VAC/30VDC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "RELAY_SPDT"; VariantName = "[No Variations]"
+Added Component: Designator=K?(REL_SPDT_5_1512)
+Add component (AddParameter): Name = "MANF"; Value = "SUN HOLD"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "RAM-1C-12"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "12V, 50mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "14V, 20A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "RELAY_SPDT"; VariantName = "[No Variations]"
+Added Component: Designator=K?(REL_SPDT_7_2419)
+Add component (AddParameter): Name = "MANF"; Value = "FOOCLE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "FLS822-4119"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "12V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "14VDC, 40A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "RELAY_SPDT"; VariantName = "[No Variations]"
+Added Component: Designator=K?(REL_SPDT_5_1512)
+Add component (AddParameter): Name = "MANF"; Value = "OMRON"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "G8QN-1C4 DC12"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "12V, 50mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "16VDC, 30A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "RELAY_SPDT"; VariantName = "[No Variations]"
+Added Component: Designator=K?(REL_SPDT_5_1512)
+Add component (AddParameter): Name = "MANF"; Value = "OMRON"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "G8QN-1C4 DC12"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "12V, 50mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "16VDC, 30A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "RELAY_SPDT"; VariantName = "[No Variations]"
+Added Component: Designator=K?(REL_SPDT_5_1512)
+Add component (AddParameter): Name = "MANF"; Value = "SUN HOLD"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "RAM-1C-12"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "12V, 50mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "14V, 20A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "RELAY_SPDT"; VariantName = "[No Variations]"
+Added Component: Designator=K?(REL_SPDT_5_2216)
+Add component (AddParameter): Name = "MANF"; Value = "OMRON"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "G5LE-1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "12V, 50mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "250VAC, 10A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "RELAY_SPDT"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found GH-1C-12L
+Added Pin To Net: NetName=12V Pin=D?-1
+Added Pin To Net: NetName=12V Pin=D?-2
+Added Pin To Net: NetName=NetD?_2 Pin=D?-2
+Added Pin To Net: NetName=NetD?_1 Pin=R?-1
+Added Pin To Net: NetName=NetD?_2 Pin=R?-2
+Added Pin To Net: NetName=NetQ?_3 Pin=R?-2
+Add Pin To Net: Unknown Pin: Pin Rel?-2
+Add Pin To Net: Unknown Pin: Pin Rel?-5
+Added Net: Name=com-Rel1
+Added Net: Name=nc-Rel1
+Added Net: Name=no-Rel1
+Added Pin To Net: NetName=OUTPUT1 Pin=R?-1
+Added Net: Name=OUTPUT1
+Added Member To Class: ClassName=Sheet1 Member=Component D?
+Added Member To Class: ClassName=Sheet1 Member=Component K? RELAY_SPDT
+Added Member To Class: ClassName=Sheet1 Member=Component K? RELAY_SPDT
+Added Member To Class: ClassName=Sheet1 Member=Component K? RELAY_SPDT
+Added Member To Class: ClassName=Sheet1 Member=Component K? RELAY_SPDT
+Added Member To Class: ClassName=Sheet1 Member=Component K? RELAY_SPDT
+Added Member To Class: ClassName=Sheet1 Member=Component K? RELAY_SPDT
+Added Member To Class: ClassName=Sheet1 Member=Component K? RELAY_SPDT
+Added Member To Class: ClassName=Sheet1 Member=Component K? RELAY_SPDT
+Added Member To Class: ClassName=Sheet1 Member=Component R? 2.2K
+Add Class Member: Failed to add class member : Component Rel? RelayGH-1C-12L

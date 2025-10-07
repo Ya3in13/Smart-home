@@ -1,0 +1,61 @@
+Add Component: Footprint Not Found 0805 LED
+Added Component: Designator=D?(D_SMA)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = "Kingtronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "M7"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "1000V VRRM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "1A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "1N4007"; VariantName = "[No Variations]"
+Added Component: Designator=Q?(TO92_3)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "C945, 2SC945, BC945"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "50v, 0.15A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "250mW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "C945"; VariantName = "[No Variations]"
+Added Component: Designator=R?(R025W_AX04)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DIST#"; Value = "MOUSER"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = "KOA SPEER"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "RK73H1ETTP4701F"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "0.063W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "100= 0.5$"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R?(R0805)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DIST#"; Value = "MOUSER"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "-W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "100= 0.5$"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "2.2K"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found GH-1C-12L
+Added Pin To Net: NetName=12V Pin=D?-1
+Added Pin To Net: NetName=12V Pin=D?-2
+Added Net: Name=12V
+Added Net: Name=com-Rel3
+Added Pin To Net: NetName=GND Pin=Q?-1
+Added Net: Name=GND
+Added Net: Name=nc-Rel3
+Added Pin To Net: NetName=NetD?_1 Pin=D?-1
+Added Pin To Net: NetName=NetD?_1 Pin=Q?-2
+Added Pin To Net: NetName=NetD?_1 Pin=R?-1
+Added Net: Name=NetD?_1
+Added Pin To Net: NetName=NetD?_2 Pin=D?-2
+Added Pin To Net: NetName=NetD?_2 Pin=R?-2
+Added Net: Name=NetD?_2
+Added Pin To Net: NetName=NetQ?_3 Pin=Q?-3
+Added Pin To Net: NetName=NetQ?_3 Pin=R?-2
+Added Net: Name=NetQ?_3
+Added Net: Name=no-Rel3
+Added Pin To Net: NetName=OUTPUT3 Pin=R?-1
+Added Net: Name=OUTPUT3
+Added Class: Name=Sheet1
