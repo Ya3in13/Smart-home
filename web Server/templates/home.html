@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">⚙️</div>
+            <ul class="menu">
+                <li><a href="#"><i class="fas fa-home"></i></a></li>
+                <li><a href="#"><i class="fas fa-user"></i></a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i></a></li>
+                <li><a href="#"><i class="fas fa-cog"></i></a></li>
+            </ul>
+            <div class="logout"><i class="fas fa-sign-out-alt"></i></div>
+        </aside>
+
+        <div class="main">
+            <header class="navbar">
+                <h1>Welcome, {{ username }}!</h1>
+                <div class="nav-icons">
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </header>
+
+            <main class="content">
+                <h2>Dashboard Overview</h2>
+                <div class="cards">
+                    <div class="card blue">
+                        <i class="fas fa-users"></i>
+                        <h3>1,240</h3>
+                        <p>Active Users</p>
+                    </div>
+                    <div class="card green">
+                        <i class="fas fa-envelope"></i>
+                        <h3>324</h3>
+                        <p>New Messages</p>
+                    </div>
+                    <div class="card orange">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>89%</h3>
+                        <p>Performance</p>
+                    </div>
+                    <div class="card red">
+                        <i class="fas fa-bug"></i>
+                        <h3>5</h3>
+                        <p>System Alerts</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
