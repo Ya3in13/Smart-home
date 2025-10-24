@@ -13,7 +13,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <!-- رفرش خودکار صفحه هر 1 ثانیه -->
-  <meta http-equiv="refresh" content="1">
+  <meta http-equiv="refresh" content="50">
   <title>Dashboard</title>
   <!-- بارگذاری CSS پروژه -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -21,12 +21,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <!-- هدر صفحه با امکانات کامل -->
+  <header class="header">
+    <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle mobile menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <h1>خوش آمدید، {{ username }}</h1>
+    <div class="header-right">
+            </button>
+        </form>
+        <div class="header-icons">
+            <i class="fas fa-cog" title="تنظیمات"></i>
+            <i class="fas fa-user-circle" title="پروفایل"></i>
+        </div>
+    </div>
+  </header>
   <div class="wrap">
     <!-- نوار کناری: شامل برند، دکمه جمع‌شدن/بازشدن و منو -->
     <aside class="sidebar" id="sidebar">
       <div class="topbar">
         <div class="brand">CN</div>
-        <h6>Welcome, {{ username }}</h6>
+        <h6 class="label"> Welcome  {{ username }}</h6>
         <button id="toggleBtn" class="toggle-btn" aria-label="Toggle sidebar">
           <i class="fas fa-angle-left"></i>
         </button>
@@ -67,11 +82,6 @@
 
     <!-- محتوای اصلی صفحه -->
     <main class="main">
-      <!-- هدر صفحه: معمولاً شامل عنوان و المان‌های کاربری است -->
-      <header class="header">
-        <!-- `username` از Flask ارسال می‌شود -->
-        <h1>Welcome, {{ username }}</h1>
-      </header>
 
       <!-- بخش محتوای اصلی: کارت‌ها، نمودارها و محتوای صفحات مختلف -->
       <section class="content">
@@ -81,7 +91,36 @@
     </main>
   </div>
 
-  <!-- اسکریپت‌های تعاملی (مثلاً برای جمع/باز شدن سایدبار) -->
+  <!-- Overlay برای پس‌زمینه تیره در حالت موبایل -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- اسکریپت‌های تعاملی -->
   <script src="{{ url_for('static', filename='sidebar.js') }}"></script>
+  <script>
+    // کنترل منوی موبایل
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+
+    function toggleMobileMenu() {
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('active');
+        // چرخش آیکون منو
+        mobileMenuBtn.querySelector('i').style.transform = 
+            sidebar.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0)';
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    overlay.addEventListener('click', toggleMobileMenu);
+
+    // بستن منو با کلیک روی لینک‌ها در حالت موبایل
+    document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 720) {
+                toggleMobileMenu();
+            }
+        });
+    });
+  </script>
 </body>
 </html>

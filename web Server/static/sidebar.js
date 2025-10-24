@@ -23,7 +23,7 @@
     const collapsed = sidebar.classList.contains('collapsed');
 
     // چرخش آیکون برای نشان دادن جهت (نمایش بصری تغییر حالت)
-    btn.querySelector('i').style.transform = collapsed ? 'rotate(180deg)' : 'rotate(0deg)';
+    btn.querySelector('i').style.transform = collapsed ? 'rotate(0deg)' : 'rotate(180deg)';
 
     // ذخیره وضعیت فعلی در localStorage (true یا false)
     localStorage.setItem('sidebar-collapsed', collapsed ? 'true' : 'false');
@@ -31,6 +31,6 @@
 
   // تنظیم اولیهٔ چرخش آیکون در صورتی که سایدبار از قبل جمع باشد
   if (sidebar.classList.contains('collapsed')) {
-    btn.querySelector('i').style.transform = 'rotate(180deg)';
+    btn.querySelector('i').style.transform = 'rotate(0deg)';
   }
 })();

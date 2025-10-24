@@ -10,7 +10,7 @@
 
 /* متغیرهای تم */
 :root{
-  --bg:#ffffff;
+  --bg:#6d6d6d;
   --sidebar:#1e2c43;
   --muted:#9aa6b2;
   --accent:#4f46e5;
@@ -28,7 +28,7 @@ html,body{height:100%;margin:0;font-family:Tahoma, "Segoe UI", Roboto, sans-seri
 /* نوار کناری: شامل حالت باز (عرض کامل) و حالت جمع‌شده (collapsed) */
 .sidebar{
   width:260px;                /* عرض در حالت باز */
-  background:linear-gradient(180deg,#330404,#023470);
+  background:linear-gradient(180deg,#1f0324,#01152e);
   color:var(--white);
   display:flex;
   flex-direction:column;
@@ -99,19 +99,165 @@ html,body{height:100%;margin:0;font-family:Tahoma, "Segoe UI", Roboto, sans-seri
 /* مخفی کردن متن لیبل در حالت collapsed */
 .sidebar.collapsed .label{ display:none; }
 
+
 /* بخش پایین سایدبار */
 .bottom{ padding:14px; }
 
 /* MAIN */
 /* ------------------ MAIN (محتوای اصلی) ------------------ */
 .main{flex:1;display:flex;flex-direction:column}
-.header{ background:white;padding:14px 20px; box-shadow:0 2px 6px rgba(0,0,0,0.06) }
+
+/* هدر اصلی */
+.header{ 
+    background: linear-gradient(90deg, #1a237e, #283593);
+    color: var(--white);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* عنوان هدر */
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* بخش راست هدر */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* آیکون‌های هدر */
+.header-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.header-icons i {
+    color: var(--white);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.5rem;
+    border-radius: 50%;
+    position: relative;
+}
+
+.header-icons i:hover {
+    color: #e3f2fd;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* واکنش‌گرایی هدر */
+@media (max-width: 720px) {
+    .header {
+        padding: 1rem;
+    }
+    
+    .header-search {
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        left: 1rem;
+        margin-top: 0.5rem;
+        background: var(--sidebar);
+        display: none;
+    }
+    
+    .header-search.active {
+        display: flex;
+    }
+    
+    .header h1 {
+        font-size: 1.25rem;
+    }
+    
+    .header-right {
+        gap: 1rem;
+    }
+}
+
 .content{ padding:22px }
+
+/* هدر و دکمه منوی موبایل - فقط در موبایل نمایش داده می‌شود */
+.header,
+.mobile-menu-btn {
+    display: none;
+}
+
+/* استایل دکمه منو */
+.mobile-menu-btn {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    transform: scale(1.1);
+}
 
 /* responsive small screens */
 /* واکنش‌گرایی: در صفحه‌های کوچک، سایدبار به صورت لانچینگ (کشویی) رفتار می‌کند */
-@media (max-width:720px){
-  .sidebar{ position:fixed; left:0; top:0; bottom:0; z-index:50; transform:translateX(-100%); width:260px; }
-  .sidebar.open{ transform:translateX(0); }
-  .wrap{ padding-left:0 }
+@media (max-width: 720px) {
+    /* نمایش هدر و دکمه منو در موبایل */
+    .header,
+    .mobile-menu-btn {
+        display: flex;
+        z-index: 60;
+    }
+
+    /* تنظیمات سایدبار موبایل */
+    .sidebar { 
+        position: fixed;
+        right: 0;  /* تغییر از left به right برای RTL */
+        top: 0;
+        bottom: 0;
+        z-index: 50;
+        transform: translateX(100%);  /* تغییر جهت transform برای RTL */
+        width: 260px;
+        background: var(--sidebar);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    /* تنظیم فاصله‌ها */
+    .wrap { 
+        padding-right: 0;
+    }
+
+    /* اضافه کردن overlay تیره پشت منو */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 45;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
 }
