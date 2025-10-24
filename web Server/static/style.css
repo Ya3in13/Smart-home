@@ -1,22 +1,34 @@
-/* base */
+/*
+  style.css
+  توضیح: استایل‌های پایه برای داشبورد.
+  بخش‌ها:
+    - متغیرهای root برای تم رنگی
+    - استایل‌های کلی (reset / layout)
+    - سایدبار (حالت expand / collapse)
+    - محتوای اصلی (header و content)
+*/
+
+/* متغیرهای تم */
 :root{
-  --bg:#f2f6fb;
-  --sidebar:#0f1724;
+  --bg:#ffffff;
+  --sidebar:#1e2c43;
   --muted:#9aa6b2;
   --accent:#4f46e5;
-  --white:#fff;
+  --white:#e9e8e8;
 }
 
+/* پایه */
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:Tahoma, "Segoe UI", Roboto, sans-serif;background:var(--bg);color:#0b1220}
 
-/* layout */
+/* چیدمان کلی: container افقی با سایدبار و محتوای اصلی */
 .wrap{display:flex;height:100vh;}
 
-/* SIDEBAR */
+/* ------------------ SIDEBAR ------------------ */
+/* نوار کناری: شامل حالت باز (عرض کامل) و حالت جمع‌شده (collapsed) */
 .sidebar{
-  width:260px;                /* expanded width */
-  background:linear-gradient(180deg,#0b1220,#091223);
+  width:260px;                /* عرض در حالت باز */
+  background:linear-gradient(180deg,#330404,#023470);
   color:var(--white);
   display:flex;
   flex-direction:column;
@@ -27,24 +39,24 @@ html,body{height:100%;margin:0;font-family:Tahoma, "Segoe UI", Roboto, sans-seri
   direction:rtl;
 }
 
-/* Collapsed state */
+/* حالت جمع‌شده: فقط آیکون‌ها دیده می‌شود */
 .sidebar.collapsed{ width:72px; }
 
-/* top area: brand + toggle */
+/* بالای سایدبار: برند و دکمه تغییر حالت */
 .topbar{ display:flex; align-items:center; justify-content:space-between; padding:18px; gap:8px; }
 .brand{
   width:44px;height:44px;border-radius:10px;background:#0ea5a9;display:flex;align-items:center;justify-content:center;font-weight:700;
-  box-shadow:0 4px 14px rgba(14,165,169,0.12);
+  box-shadow:0 4px 4px rgba(14,165,169,0.12);
   color:white;
 }
 .toggle-btn{
   background:transparent;border:none;color:rgba(255,255,255,0.8);font-size:18px;padding:6px;border-radius:8px;cursor:pointer;
 }
-.toggle-btn:hover{ background:rgba(255,255,255,0.03); }
+.toggle-btn:hover{ background:rgba(255, 255, 255, 0); }
 
-/* nav */
+/* منو */
 .nav ul, .bottom ul{ list-style:none;padding:0;margin:0; display:flex; flex-direction:column; gap:8px;}
-.nav li, .bottom li{ position:relative; margin:6px 0; }
+.nav li, .bottom li{ position:relative; margin:0px 0; }
 
 .nav a{
   display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--white);
@@ -52,13 +64,13 @@ html,body{height:100%;margin:0;font-family:Tahoma, "Segoe UI", Roboto, sans-seri
 }
 .nav a .label{ font-size:14px; font-weight:600; }
 
-/* icon style */
-.nav a i{ font-size:18px; width:24px; text-align:center; color:rgba(255,255,255,0.9); }
+/* استایل آیکون‌ها */
+.nav a i{ font-size:18px; width:18px; text-align:center; color:rgba(255,255,255,0.9); }
 
-/* hover */
+/* افکت hover */
 .nav a:hover{ background:rgba(255,255,255,0.03); transform:translateX(-4px); }
 
-/* tooltip: visible when collapsed */
+/* تولتیپ زمانی که سایدبار جمع است (نمایش متن آیتم به صورت شناور) */
 .nav li::after{
   content: attr(data-label);
   position:absolute;
@@ -70,32 +82,34 @@ html,body{height:100%;margin:0;font-family:Tahoma, "Segoe UI", Roboto, sans-seri
   padding:8px 10px;
   border-radius:8px;
   white-space:nowrap;
-  font-size:13px;
+  font: size 11px;
   opacity:0;
   pointer-events:none;
   transition:opacity .12s, transform .12s;
   margin-right:12px;
   box-shadow:0 6px 18px rgba(2,6,23,0.6);
 }
-/* show tooltip only when collapsed and on hover */
+/* نشان دادن تولتیپ در حالت collapsed */
 .sidebar.collapsed .nav li:hover::after,
 .sidebar.collapsed .bottom li:hover::after{
   opacity:1;
   transform:translateY(-50%) translateX(0);
 }
 
-/* hide labels when collapsed */
+/* مخفی کردن متن لیبل در حالت collapsed */
 .sidebar.collapsed .label{ display:none; }
 
-/* bottom area */
+/* بخش پایین سایدبار */
 .bottom{ padding:14px; }
 
 /* MAIN */
+/* ------------------ MAIN (محتوای اصلی) ------------------ */
 .main{flex:1;display:flex;flex-direction:column}
 .header{ background:white;padding:14px 20px; box-shadow:0 2px 6px rgba(0,0,0,0.06) }
 .content{ padding:22px }
 
 /* responsive small screens */
+/* واکنش‌گرایی: در صفحه‌های کوچک، سایدبار به صورت لانچینگ (کشویی) رفتار می‌کند */
 @media (max-width:720px){
   .sidebar{ position:fixed; left:0; top:0; bottom:0; z-index:50; transform:translateX(-100%); width:260px; }
   .sidebar.open{ transform:translateX(0); }
