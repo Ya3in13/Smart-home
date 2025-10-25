@@ -73,8 +73,10 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : INPUT1_Pin INPUT2_Pin */
-  GPIO_InitStruct.Pin = INPUT1_Pin|INPUT2_Pin;
+  /*Configure GPIO pins : INPUT1_Pin INPUT14_Pin INPUT15_Pin INPUT16_Pin
+                           INPUT17_Pin INPUT18_Pin INPUT2_Pin */
+  GPIO_InitStruct.Pin = INPUT1_Pin|INPUT14_Pin|INPUT15_Pin|INPUT16_Pin
+                          |INPUT17_Pin|INPUT18_Pin|INPUT2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -86,9 +88,11 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : INPUT3_Pin INPUT4_Pin INPUT5_Pin INPUT6_Pin
+  /*Configure GPIO pins : INPUT10_Pin INPUT11_Pin INPUT12_Pin INPUT13_Pin
+                           INPUT3_Pin INPUT4_Pin INPUT5_Pin INPUT6_Pin
                            INPUT7_Pin INPUT8_Pin INPUT9_Pin */
-  GPIO_InitStruct.Pin = INPUT3_Pin|INPUT4_Pin|INPUT5_Pin|INPUT6_Pin
+  GPIO_InitStruct.Pin = INPUT10_Pin|INPUT11_Pin|INPUT12_Pin|INPUT13_Pin
+                          |INPUT3_Pin|INPUT4_Pin|INPUT5_Pin|INPUT6_Pin
                           |INPUT7_Pin|INPUT8_Pin|INPUT9_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;

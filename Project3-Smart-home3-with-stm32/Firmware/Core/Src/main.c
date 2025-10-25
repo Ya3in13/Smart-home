@@ -18,7 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "spi.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -39,7 +39,17 @@ void onoff(){
 	if(1)HAL_GPIO_WritePin(OUTPUT8,x);
 	if(1)HAL_GPIO_WritePin(OUTPUT9,x);
 }
-
+void Automatic_control_relay(void){
+	if(1)HAL_GPIO_WritePin(OUTPUT1,HAL_GPIO_ReadPin(INPUT10)&& HAL_GPIO_ReadPin(INPUT1)&& !HAL_GPIO_ReadPin(INPUT2));
+	if(1)HAL_GPIO_WritePin(OUTPUT2,HAL_GPIO_ReadPin(INPUT11)&& HAL_GPIO_ReadPin(INPUT2));
+	if(1)HAL_GPIO_WritePin(OUTPUT3,HAL_GPIO_ReadPin(INPUT12)&& HAL_GPIO_ReadPin(INPUT3));
+	if(1)HAL_GPIO_WritePin(OUTPUT4,HAL_GPIO_ReadPin(INPUT13)&& HAL_GPIO_ReadPin(INPUT4)&& !HAL_GPIO_ReadPin(INPUT5));
+	if(1)HAL_GPIO_WritePin(OUTPUT5,HAL_GPIO_ReadPin(INPUT14)&& HAL_GPIO_ReadPin(INPUT5));
+	if(1)HAL_GPIO_WritePin(OUTPUT6,HAL_GPIO_ReadPin(INPUT15)&& HAL_GPIO_ReadPin(INPUT6));
+	if(1)HAL_GPIO_WritePin(OUTPUT7,HAL_GPIO_ReadPin(INPUT16)&& HAL_GPIO_ReadPin(INPUT7)&& !HAL_GPIO_ReadPin(INPUT8));
+	if(1)HAL_GPIO_WritePin(OUTPUT8,HAL_GPIO_ReadPin(INPUT17)&& HAL_GPIO_ReadPin(INPUT8));
+	if(1)HAL_GPIO_WritePin(OUTPUT9,HAL_GPIO_ReadPin(INPUT18)&& HAL_GPIO_ReadPin(INPUT9));
+	}
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -103,7 +113,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI2_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   uint8_t myValue=0;
   /* USER CODE END 2 */
@@ -117,7 +127,6 @@ int main(void)
 		if(++myValue>100){
 			myValue=0;
 			HAL_GPIO_TogglePin(LED);
-
 
 		}
 
