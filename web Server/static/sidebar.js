@@ -34,3 +34,19 @@
     btn.querySelector('i').style.transform = 'rotate(0deg)';
   }
 })();
+
+function toggleTheme() {
+  document.body.classList.toggle('light-theme');
+}
+setInterval(() => {
+  fetch('/devices')
+    .then(r => r.json())
+    .then(data => {
+      // آپدیت فقط UI
+      document.querySelectorAll('.device-card').forEach(card => {
+        const dev = card.dataset.device;
+        const info = data[dev];
+        // آپدیت اسلایدر، متن و ...
+      });
+    });
+}, 2000);
