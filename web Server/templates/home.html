@@ -3,24 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MHA Project - داشبورد خانه هوشمند</title>
-
+  <title>MHA Project</title>
+  <meta http-equiv="refresh" content="5">
   <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<button class="mobile-menu-btn" id="mobileMenuBtn">
-  <i class="fas fa-bars"></i>
-</button>
-<button onclick="toggleTheme()" style="position:fixed;bottom:20px;left:20px;z-index:1000;background:#fff;color:#000;padding:10px;border-radius:50%;border:none;">
-  روشن/تاریک
-</button>
+
 <header class="navbar">
+  <button class="toggle-btn" id="toggleBtn"><i class="fas fa-chevron-left"></i></button>
+  <div class="user-profile">
+    <img src="{{ url_for('static', filename='img/avatar.jpg') }}" width="50" alt="User" class="avatar">
+    <span>{{ username }}</span>
+    <span class="arrow">▾</span>
+  </div>
+  
   <div class="logo">
     <div class="icon"></div>
-    <span>Orgelux</span>
+    <span>MHA</span>
   </div>
   <nav class="nav-links">
     <a href="#" class="active">اتاق نشیمن</a>
@@ -28,21 +30,16 @@
     <a href="#">اتاق خواب</a>
     <a href="#">آشپزخانه</a>
   </nav>
-  <div class="user-profile">
-    <img src="{{ url_for('static', filename='img/avatar.jpg') }}" width="50" alt="User" class="avatar">
-    <span>{{ username }}</span>
-    <span class="arrow">▾</span>
-  </div>
+  
 </header>
 
 <div class="wrap">
   <!-- سایدبار -->
   <aside class="sidebar" id="sidebar">
     <div class="topbar">
-      <div class="brand">M</div>
-      <button class="toggle-btn" id="toggleBtn"><i class="fas fa-chevron-left"></i></button>
-    </div>
 
+      
+    </div>
     <nav class="nav">
       <ul>
         <li data-label="داشبورد"><a href="/home"><i class="fas fa-home"></i><span class="label">داشبورد</span></a></li>
