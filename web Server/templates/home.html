@@ -1,138 +1,35 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MHA Project</title>
-  <meta http-equiv="refresh" content="50">
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>MHA Project</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
+    <meta http-equiv="refresh" content="10">
+  </head>
 
-<header class="navbar">
-  <button class="toggle-btn" id="toggleBtn"><i class="fas fa-chevron-left"></i></button>
-  <div class="user-profile">
-    <img src="{{ url_for('static', filename='img/avatar.jpg') }}" width="50" alt="User" class="avatar">
-    <span>{{ username }}</span>
-    <span class="arrow">▾</span>
-  </div>
-  
-  <div class="logo">
-    <div class="icon"></div>
-    <span>MHA</span>
-  </div>
-  <nav class="nav-links">
-    <a href="#" class="active">اتاق نشیمن</a>
-    <a href="#">حمام</a>
-    <a href="#">اتاق خواب</a>
-    <a href="#">آشپزخانه</a>
-  </nav>
-  
-</header>
+  <body>
+      <header>
+        <nav>
+          <div class="user-profile">
+            <img src="{{ url_for('static', filename='img/avatar.jpg') }}"  alt="User" class="avatar">
+            <span>{{ username }} خوش آمدید </span>
+            <span class="arrow">▾</span>
+          </div>
+          <div>
+            <a href="/home">خانه</a>
+            <a href="/cam">دوربین ها</a>
+            <a href="#">تنظیمات</a>
+          </div>
+          <span class="MHA"><b>MHA</b></span>
 
-<div class="wrap">
-  <!-- سایدبار -->
-  <aside class="sidebar" id="sidebar">
-    <div class="topbar">
-
-      
-    </div>
-    <nav class="nav">
-      <ul>
-        <li data-label="داشبورد"><a href="/home"><i class="fas fa-home"></i><span class="label">داشبورد</span></a></li>
-        <li data-label="دوربین"><a href="#"><i class="fa-solid fa-camera"></i><span class="label">دوربین</span></a></li>
-        <li data-label="پیام‌ها"><a href="#"><i class="fas fa-envelope"></i><span class="label">پیام‌ها</span></a></li>
-        <li data-label="تحلیل"><a href="#"><i class="fas fa-chart-bar"></i><span class="label">تحلیل</span></a></li>
-        <li data-label="پروفایل"><a href="#"><i class="fas fa-user"></i><span class="label">پروفایل</span></a></li>
-        <li data-label="تنظیمات"><a href="#"><i class="fas fa-cog"></i><span class="label">تنظیمات</span></a></li>
-      </ul>
-    </nav>
-
-    <div class="nav bottom">
-      <ul>
-        <li data-label="نشانک‌ها"><a href="#"><i class="fa-solid fa-bookmark"></i><span class="label">نشانک‌ها</span></a></li>
-        <li data-label="خروج"><a href="#"><i class="fa-solid fa-right-from-bracket"></i><span class="label">خروج</span></a></li>
-      </ul>
-    </div>
-  </aside>
-
-  <!-- محتوای اصلی -->
-  <main class="main">
-    <section class="content">
-      <h2>وضعیت دستگاه‌ها</h2>
-      <div class="devices-grid">
-        {% for name, info in devices.items() %}
-        <div class="device-card" data-device="{{ name }}">
-          <h3>{{ name | capitalize }}</h3>
-          {% if name == 'light' %}
-            <p>وضعیت: <span class="status">{{ info.status }}</span></p>
-            <p>شدت: <input type="range" min="0" max="100" value="{{ info.intensity }}" class="slider" data-key="intensity"></p>
-          {% elif name == 'ac' %}
-            <p>وضعیت: <span class="status">{{ info.status }}</span></p>
-            <p>دما: <input type="number" value="{{ info.temp }}" min="16" max="30" data-key="temp"> °C</p>
-          {% elif name == 'vacuum' %}
-            <p>وضعیت: <span class="status">{{ info.status }}</span></p>
-            <p>باتری: <meter value="{{ info.battery }}" min="0" max="100"></meter> {{ info.battery }}%</p>
-          {% elif name == 'wifi' %}
-            <p>وضعیت: <span class="status">{{ info.status }}</span></p>
-            <p>سرعت: {{ info.speed }} Mbps</p>
-          {% endif %}
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-  </main>
-</div>
-
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<!-- اسکریپت‌ها -->
-<script src="{{ url_for('static', filename='sidebar.js') }}"></script>
-<script>
-  // به‌روزرسانی خودکار هر 2 ثانیه
-  function fetchDevices() {
-    fetch('/update', { method: 'GET' })
-      .then(() => location.reload()); // ساده‌ترین راه: رفرش
-  }
-
-  // یا بهتر: فقط داده‌ها رو آپدیت کن (بدون رفرش)
-  // setInterval(() => fetch('/update').then(r => r.json()).then(data => updateUI(data)), 2000);
-
-  // کنترل دستگاه‌ها
-  document.querySelectorAll('.slider, input[type=number]').forEach(el => {
-    el.addEventListener('change', function() {
-      const card = this.closest('.device-card');
-      const device = card.dataset.device;
-      const key = this.dataset.key;
-      const value = this.value;
-
-      fetch('/update', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ device, key, value })
-      });
-    });
-  });
-
-  // منوی موبایل
-  const mobileMenuBtn = document.createElement('button');
-  mobileMenuBtn.className = 'mobile-menu-btn';
-  mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-  mobileMenuBtn.id = 'mobileMenuBtn';
-  document.querySelector('.navbar').prepend(mobileMenuBtn);
-
-  mobileMenuBtn.addEventListener('click', () => {
-    document.getElementById('sidebar').classList.toggle('open');
-    document.getElementById('sidebarOverlay').classList.toggle('active');
-  });
-
-  document.getElementById('sidebarOverlay').addEventListener('click', () => {
-    document.getElementById('sidebar').classList.remove('open');
-    document.getElementById('sidebarOverlay').classList.remove('active');
-  });
-</script>
-</body>
+          </nav>
+      </header>
+     
+    
+    
+  </body>
 </html>
