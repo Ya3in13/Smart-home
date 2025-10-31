@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>MHA Project</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
+    <meta http-equiv="refresh" content="200">
+  </head>
+
+  <body>
+      <header>
+        <nav>
+          <div class="user-profile">
+            <img src="{{ url_for('static', filename='img/avatar.jpg') }}"  alt="User" class="avatar">
+            <span>{{ username }} خوش آمدید </span>
+            <span class="arrow">▾</span>
+          </div>
+          <div>
+            <a href="/home">خانه</a>
+            <a href="/cam">دوربین ها</a>
+            <a href="#">تنظیمات</a>
+          </div>
+          <span class="MHA"><b>MHA</b></span>
+          </nav>
+      </header>
+     
+    <div class="live">
+      <video  autoplay muted src="{{ url_for('static', filename='img/test4.mp4') }}" ></video>      
+    </div> 
+    <div class="live">
+      <video  autoplay muted src="{{ url_for('static', filename='img/test3.mp4') }}" ></video>      
+<div class="live">
+  <video id="myVideo" autoplay muted loop>
+    <source src="{{ url_for('static', filename='img/test3.mp4') }}" type="video/mp4">
+    مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+  </video>
+</div>
+
+<script>
+  // وقتی ویدیو آماده شد، به ثانیه 40 برو
+  document.getElementById('myVideo').addEventListener('loadedmetadata', function() {
+    this.currentTime = 40;  // شروع از ثانیه 40
+  });
+</script>
+    
+    
+  </body>
+</html>
