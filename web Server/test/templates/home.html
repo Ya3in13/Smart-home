@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+  <!-- سایدبار -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2><i class="fas fa-home"></i> Home Assistant</h2>
+      <button class="toggle-btn" id="toggleBtn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+    </div>
+    <nav class="nav">
+      <a href="#" class="active"><i class="fas fa-tachometer-alt"></i><span>Overview</span></a>
+      <a href="#"><i class="fas fa-mobile-alt"></i><span>Mobile</span></a>
+      <a href="#"><i class="fas fa-bolt"></i><span>Energy</span></a>
+      <a href="#"><i class="fas fa-map"></i><span>Map</span></a>
+      <a href="#"><i class="fas fa-history"></i><span>Logbook</span></a>
+      <a href="#"><i class="fas fa-history"></i><span>History</span></a>
+      <a href="#"><i class="fas fa-cog"></i><span>Settings</span></a>
+    </nav>
+  </aside>
+
+  <!-- محتوای اصلی -->
+  <main class="main">
+    <header class="header">
+      <h1>Be Smart, Go Local!</h1>
+      <p>www.smarthomescene.com</p>
+    </header>
+
+    <div class="grid">
+      <!-- کارت آب‌وهوا -->
+      <div class="card weather">
+        <h3>آب و هوا</h3>
+        <div class="current">
+          <i class="fas fa-cloud-sun"></i>
+          <div>
+            <p class="temp">{{ weather.temp }}°C</p>
+            <p class="condition">{{ weather.current }}</p>
+          </div>
+        </div>
+        <div class="forecast">
+          {% for day in weather.forecast %}
+          <div class="day">
+            <p>{{ day.day }}</p>
+            <p>{{ day.temp }}°</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- کارت نورها -->
+      <div class="card lights">
+        <h3>Lights</h3>
+        <div class="light-controls">
+          {% for light in lights %}
+          <div class="light" data-name="{{ light.name }}">
+            <p>{{ light.name }}</p>
+            <button class="toggle {{ 'on' if light.get('state') == 'on' else 'off' }}"
+                    onclick="toggleLight('{{ light.name }}')">
+              <i class="fas fa-power-off"></i>
+            </button>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- کارت انرژی -->
+      <div class="card energy">
+        <h3>Energy</h3>
+        <div class="energy-flow">
+          <div class="source solar">
+            <p>Solar Pump</p>
+            <p class="value">{{ energy.solar }} W</p>
+          </div>
+          <div class="line"></div>
+          <div class="source grid">
+            <p>Grid</p>
+            <p class="value">{{ energy.grid }} W</p>
+          </div>
+          <div class="line"></div>
+          <div class="source home">
+            <p>Home</p>
+            <p class="value">{{ energy.home }} W</p>
+          </div>
+        </div>
+        <div class="temps">
+          <div class="temp">
+            <p>Boiler 100l</p>
+            <p class="value">{{ energy.boiler100 }}°C</p>
+          </div>
+          <div class="temp">
+            <p>Boiler 150l</p>
+            <p class="value">{{ energy.boiler150 }}°C</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- کارت دما -->
+      <div class="card temp">
+        <h3>Living Room Temperature</h3>
+        <p class="big-temp">22.9 °C</p>
+        <p class="details">Min 22.7°C · 7:08 am</p>
+        <p class="details">Max 24.3°C · 4:08 pm</p>
+        <div class="chart">
+          <div class="bar" style="width: 70%"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
