@@ -25,7 +25,7 @@
 /* USER CODE BEGIN Includes */
 #include "def.h"
 uint8_t x;
-void onoff(){
+void onoff(void){
 	if(x==1)x=0;
 	else x=1;
 
@@ -50,6 +50,36 @@ void Automatic_control_relay(void){
 	if(1)HAL_GPIO_WritePin(OUTPUT8,HAL_GPIO_ReadPin(INPUT17)&& HAL_GPIO_ReadPin(INPUT8));
 	if(1)HAL_GPIO_WritePin(OUTPUT9,HAL_GPIO_ReadPin(INPUT18)&& HAL_GPIO_ReadPin(INPUT9));
 	}
+void reltest(void){
+	HAL_GPIO_WritePin(OUTPUT1,1);
+	HAL_Delay(x);
+	HAL_GPIO_WritePin(OUTPUT1,0);
+	HAL_GPIO_WritePin(OUTPUT2,1);
+	HAL_Delay(x);
+	HAL_GPIO_WritePin(OUTPUT2,0);
+	HAL_GPIO_WritePin(OUTPUT3,1);
+	HAL_Delay(x);
+	HAL_GPIO_WritePin(OUTPUT3,0);
+	HAL_GPIO_WritePin(OUTPUT4,1);
+	HAL_Delay(x);
+	HAL_GPIO_WritePin(OUTPUT4,0);
+	HAL_GPIO_WritePin(OUTPUT5,1);
+	HAL_Delay(x);
+	HAL_GPIO_WritePin(OUTPUT5,0);
+	HAL_GPIO_WritePin(OUTPUT6,1);
+	HAL_Delay(x);
+	HAL_GPIO_WritePin(OUTPUT6,0);
+	HAL_GPIO_WritePin(OUTPUT7,1);
+	HAL_Delay(x);
+	HAL_GPIO_WritePin(OUTPUT7,0);
+  HAL_GPIO_WritePin(OUTPUT8,1);
+	HAL_Delay(x);
+	HAL_GPIO_WritePin(OUTPUT8,0);
+	HAL_GPIO_WritePin(OUTPUT9,1);
+	HAL_Delay(x);
+	HAL_GPIO_WritePin(OUTPUT9,0);
+}
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
