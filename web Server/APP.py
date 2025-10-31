@@ -18,6 +18,10 @@ def index():
 def dashboard():
     return render_template('home.html', devices=devices, username="Yasin")
 
+@app.route('/cam')
+def cam():
+    return render_template('cam.html', devices=devices, username="Yasin")
+
 @app.route('/update', methods=['POST'])
 def update_device():
     data = request.json
