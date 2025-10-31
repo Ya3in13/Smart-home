@@ -1,314 +1,97 @@
-/* style.css - نسخه بهبودیافته و یک‌دست: تم آبی-بنفش هماهنگ، کارت‌های مدرن، سایدبار نرم‌تر */
-
-/* متغیرهای تم برای هماهنگی */
 :root {
-  --primary-bg: #112b5c; /* آبی تیره اصلی */
-  --secondary-bg: #01152e; /* آبی-بنفش سایدبار */
-  --accent: #4ade80; /* سبز برای وضعیت */
-  --text-white: #ffffff;
-  --text-muted: #a5d8ff;
-  --card-bg: rgba(255, 255, 255, 0.08); /* شفافیت کمتر برای یک‌دستی */
-  --border: rgba(255, 255, 255, 0.12);
-  --shadow: rgba(0, 0, 0, 0.2);
+  --background: rgb(24, 24, 24);
+  --background-header: rgb(35, 35, 35);
+  --background-header-items: rgb(39, 39, 39);
+  --border-color: rgb(250,200,70);
+  --text-color : rgb(255,255,255);
 }
 
-/* پایه */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  height: 100%;
-  font-family: 'Poppins', Tahoma, sans-serif;
-  background: linear-gradient(135deg, var(--primary-bg) 0%, #2a5298 100%) !important;
-  color: var(--text-white);
-  direction: rtl;
-  font-size: 16px;
-}
-
-.wrap {
-  display: flex;
-  height: calc(100vh - 70px); /* تنظیم برای هدر */
-  margin-top: 70px; /* فضای هدر */
-}
-
-/* هدر: هماهنگ با تم */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 70px;
-  background: linear-gradient(90deg, var(--primary-bg), var(--secondary-bg));
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  box-shadow: 0 4px 10px var(--shadow);
-  z-index: 100;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover, .nav-links a.active {
-  color: var(--text-white);
-}
-
-.user-profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.avatar {
-  border-radius: 50%;
-  border: 2px solid var(--border);
-}
-
-.arrow {
-  font-size: 0.8rem;
-}
-
-/* سایدبار: نرم‌تر و هماهنگ */
-.sidebar {
-  width: 260px;
-  background: linear-gradient(180deg, var(--secondary-bg), var(--primary-bg));
-  color: var(--text-white);
-  transition: width 0.3s ease;
-  border-left: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow-y: auto;
-}
-
-.sidebar.collapsed {
-  width: 72px;
-}
-
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px;
-  border-bottom: 1px solid var(--border);
-}
-
-.brand {
-  width: 44px;
-  height: 44px;
-  background: #0ea5a9;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: var(--text-white);
-  box-shadow: 0 2px 6px var(--shadow);
-}
-
-.toggle-btn {
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: 0.2s;
-  position: absolute;  /* برای چسباندن */
-  right: 60px; /* چسبیده به چپ */
-  top: 50%;
-  transform: translateY(-50%);  /* وسط عمودی */
-  padding: 8px;
-  z-index: 1001;  /* بالای همه */
-}
-
-.toggle-btn:hover {
-  color: var(--text-white);
-}
-
-.nav ul {
-  list-style: none;
-  padding: 0 8px;
-}
-
-.nav a {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--text-muted);
-  text-decoration: none;
-  padding: 12px 18px;
-  border-radius: 10px;
-  margin: 4px 0;
-  transition: all 0.4s;
-}
-
-.nav a:hover {
-  background: var(--card-bg);
-  color: var(--text-white);
-  transform: translateX(-4px);
-}
-
-.nav a i {
-  font-size: 18px;
-}
-
-.label {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.sidebar.collapsed .label {
-  display: none;
-}
-
-.bottom-nav {
-  border-top: 1px solid var(--border);
-  padding-top: 14px;
-}
-
-/* محتوای اصلی */
-.main {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.content h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: var(--text-white);
-}
-
-/* کارت‌های دستگاه: مدرن‌تر و یک‌دست */
-.devices-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.device-card {
-  background: var(--card-bg);
-  border-radius: 16px;
-  padding: 20px;
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px var(--shadow);
-}
-
-.device-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px var(--shadow);
-}
-
-.device-card h3 {
-  margin-bottom: 16px;
-  font-size: 1.4rem;
-  color: var(--text-white);
-}
-
-.device-card p {
-  margin: 12px 0;
-  font-size: 1rem;
-  color: var(--text-muted);
-}
-
-.status {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.slider {
-  width: 100%;
-  margin: 10px 0;
-  accent-color: var(--accent);
-}
-
-input[type="number"] {
-  width: 60px;
-  padding: 6px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--card-bg);
-  color: var(--text-white);
-}
-
-meter {
-  width: 100%;
-  height: 8px;
-}
-
-/* موبایل: بهبود یافته */
-@media (max-width: 720px) {
-  .wrap {
-    flex-direction: column;
-  }
-  
-  .sidebar {
-    position: fixed;
-    right: 0;
-    top: 70px;
-    bottom: 0;
-    transform: translateX(100%);
-    z-index: 50;
-    width: 260px;
-  }
-  
-  .sidebar.open {
-    transform: translateX(0);
-  }
-  
-  .sidebar-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 45;
-  }
-  
-  .sidebar-overlay.active {
+header div{
     display: block;
-  }
+    top: 100px;
+}
+nav {
+  border: 1px solid rgb(0, 0, 0);
+  background: var(--background-header);
+  border-radius: 50px; 
+  padding: 10px 00px 20px 00px;
+  width: 100%;
+  height: 20px;
+  display: flexbox;
+  align-content: center;
+}
+nav div{
+  display: inline;
+  width:auto;
+  height: 20px;
+  float: none;
   
-  .nav-links {
-    display: none;
-  }
-  
-  .devices-grid {
-    grid-template-columns: 1fr;
-  }
+}
+nav .user-profile{
+  color: var(--text-color);
+  background: var(--background-header) ;
+  display: inline;
+  border-radius: 50px;
+  padding: 00px 00px 00px 40px;
+  margin-top: -5px;
+  width:auto;
+  height: 20px;
+  float: right;
+}
+nav .user-profile img{
+  width : 40px ;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid var(--border-color);
+  vertical-align: middle;
+  object-fit: cover;
+}
+nav a{
+  border: 1px solid var(--background-header-items);
+  background-color: var(--background-header-items);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin: 0 auto;
+  padding: 8px 14px;
+  font-size: 20px;
+  border-radius: 20px;
+  transition: all 0.5s ease;
+}
+nav a:hover {
+  background-color: var(--background-header);
+  color: var(--border-color);
+  border-color: var(--border-color);
+}
+nav .MHA{
+  position: relative;
+  background-color:rgba(33, 33, 33, 0);
+  border-color: rgba(0, 255, 255, 0) ;
+  color: var(--border-color);
+  font-size: 40px;
+  float:inline-end;
+  padding-left: 20px;
+  transition: 0s;
+  top: -11px;
+}
+.MHA:hover{
+  border: 0px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
-/* انیمیشن نرم برای لود */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(10px); }
+body {
+  font-family: 'Vazirmatn', 'Poppins', sans-serif;
+  background-color: var(--background);
 }
 
-.device-card {
-  animation: fadeIn 0.5s ease forwards;
+.live{
+  display: inline;
 }
+.live video{
+  background-color: var(--background);
+  width: 30vw;
+  padding: 5px;
+  border-radius: 30px ;
+  object-fit: cover;
+  
+}
+
