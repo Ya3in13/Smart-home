@@ -63,8 +63,8 @@ all: main-build
 main-build: Crane-control-system.elf secondary-outputs
 
 # Tool invocations
-Crane-control-system.elf Crane-control-system.map: $(OBJS) $(USER_OBJS) C:\Users\yasin\Documents\GitHub\Crane-control-system\Firmware\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Crane-control-system.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\yasin\Documents\GitHub\Crane-control-system\Firmware\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Crane-control-system.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Crane-control-system.elf Crane-control-system.map: $(OBJS) $(USER_OBJS) D:\GitHub\Smart-home\Project3-Smart-home3-with-stm32\Firmware\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Crane-control-system.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\GitHub\Smart-home\Project3-Smart-home3-with-stm32\Firmware\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Crane-control-system.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

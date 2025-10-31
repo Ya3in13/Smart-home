@@ -51,6 +51,7 @@ void Automatic_control_relay(void){
 	if(1)HAL_GPIO_WritePin(OUTPUT9,HAL_GPIO_ReadPin(INPUT18)&& HAL_GPIO_ReadPin(INPUT9));
 	}
 void reltest(void){
+	x=500;
 	HAL_GPIO_WritePin(OUTPUT1,1);
 	HAL_Delay(x);
 	HAL_GPIO_WritePin(OUTPUT1,0);
@@ -72,12 +73,13 @@ void reltest(void){
 	HAL_GPIO_WritePin(OUTPUT7,1);
 	HAL_Delay(x);
 	HAL_GPIO_WritePin(OUTPUT7,0);
-  HAL_GPIO_WritePin(OUTPUT8,1);
+	HAL_GPIO_WritePin(OUTPUT8,1);
 	HAL_Delay(x);
 	HAL_GPIO_WritePin(OUTPUT8,0);
 	HAL_GPIO_WritePin(OUTPUT9,1);
 	HAL_Delay(x);
 	HAL_GPIO_WritePin(OUTPUT9,0);
+	HAL_GPIO_TogglePin(LED);
 }
 
 /* USER CODE END Includes */
@@ -152,13 +154,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	while(1){
 		//Automatic_control_relay();
-		onoff();
+		/*onoff();
 		HAL_Delay(1000);
 		if(++myValue>100){
 			myValue=0;
 			HAL_GPIO_TogglePin(LED);
-
-		}
+		}*/
+		reltest();
 
     /* USER CODE END WHILE */
 
