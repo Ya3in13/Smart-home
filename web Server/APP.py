@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, url_for, request, jsonify
 app = Flask(__name__)
 
 # شبیه‌سازی وضعیت دستگاه‌ها
+username= "YASIN"
 devices = {
     "light": {"status": "on", "intensity": 80},
     "ac": {"status": "cooling", "temp": 23},
@@ -16,11 +17,11 @@ def index():
 
 @app.route('/home')
 def dashboard():
-    return render_template('home.html', devices=devices, username="Yasin")
+    return render_template('home.html', devices=devices, username=username)
 
 @app.route('/cam')
 def cam():
-    return render_template('cam.html', devices=devices, username="Yasin")
+    return render_template('cam.html', devices=devices, username=username)
 
 @app.route('/update', methods=['POST'])
 def update_device():
