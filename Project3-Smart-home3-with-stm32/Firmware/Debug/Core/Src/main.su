@@ -1,5 +1,6 @@
 ../Core/Src/main.c:28:6:onoff	8	static
 ../Core/Src/main.c:42:6:Automatic_control_relay	8	static
-../Core/Src/main.c:91:5:main	16	static
-../Core/Src/main.c:144:6:SystemClock_Config	72	static
-../Core/Src/main.c:187:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:53:6:reltest	8	static
+../Core/Src/main.c:123:5:main	16	static
+../Core/Src/main.c:176:6:SystemClock_Config	72	static
+../Core/Src/main.c:219:6:Error_Handler	4	static,ignoring_inline_asm
