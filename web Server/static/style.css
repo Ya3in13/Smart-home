@@ -62,7 +62,8 @@ nav a:hover {
   color: var(--border-color);
   border-color: var(--border-color);
 }
-nav .MHA{
+nav .logo{
+  display: inline;
   position: relative;
   background-color:rgba(33, 33, 33, 0);
   border-color: rgba(0, 255, 255, 0) ;
@@ -70,17 +71,24 @@ nav .MHA{
   font-size: 40px;
   float:inline-end;
   padding-left: 20px;
-  transition: 0s;
+  transition: 1s;
   top: -11px;
+  margin-right: 10px;
+  vertical-align:middle;
+  object-fit: cover;
 }
-.MHA:hover{
-  border: 0px;
-  background-color: rgba(0, 0, 0, 0);
+nav .logo:hover{
+  transform: rotate(360);
+  transition: 2s;
 }
 
 body {
   font-family: 'Vazirmatn', 'Poppins', sans-serif;
   background-color: var(--background);
+  /*background-image: url(img/logo.png);
+  background-repeat: no-repeat;
+  background-position: center ;
+  background-size: cover;*/
 }
 
 .live{
