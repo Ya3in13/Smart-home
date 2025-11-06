@@ -25,6 +25,7 @@
 - Project1-Smart-home-with-ESP8266
 - Project2-Smart-home-with-ESP8266
 - Project3-Smart-home3-with-stm32
+- web Server
 علاوه بر این یک پوشه `web Server` حاوی یک اپلیکیشن پایتون (فایل APP.py) برای نمایش/کنترل دستگاه‌ها وجود دارد.
 
 ---
