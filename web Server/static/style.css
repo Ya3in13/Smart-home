@@ -5,13 +5,21 @@
   --border-color: rgb(250,200,70);
   --text-color : rgb(255,255,255);
 }
+body {
+  font-family: 'Vazirmatn', 'Poppins', sans-serif;
+  background-color: var(--background);
+  color: var(--text-color);
+  background-image: url(img/fjr.png);
+  background-repeat: no-repeat;
+  background-position: center ;
+  background-size: cover;
+}
 
 header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-radius: 20px; 
-  border: 1px solid rgb(0, 0, 0);
   background: var(--background-header);
   align-items: center;
 }
@@ -38,9 +46,9 @@ nav {
   object-fit: cover;
 }
 nav a{
+  color: var(--text-color);
   border: 1px solid var(--background-header-items);
   background-color: var(--background-header-items);
-  color: rgb(255, 255, 255);
   text-decoration: none;
   margin: 0 auto;
   padding: 6px 14px;
@@ -64,20 +72,57 @@ nav a:hover {
 }
 .logo:hover{
   transform: rotate(360);
-  transition: 2s;
-  border: 1px solid var(--border-color);
-  
+  transition: 1s;
 }
 
-body {
-  font-family: 'Vazirmatn', 'Poppins', sans-serif;
-  background-color: var(--background);
-  color: var(--text-color);
-  background-image: url(img/fjr.png);
-  background-repeat: no-repeat;
-  background-position: center ;
-  background-size: cover;
+main{
+  display: flex;
 }
+
+.sidebar-nav{
+  background: var(--background-header);
+  color: var(--text-color);
+  border-color: var(--border-color);
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px; 
+  align-items: center;
+  width: 200px;
+  height: 28em;
+  padding: 10px 0px ;
+}
+.sidebar-nav a{
+  background-color: var(--background-header-items);
+  color: var(--text-color);
+  border: 1px solid var(--background-header-items);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px ;
+  width: 158px;
+  margin: 3px 0px ;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 20px; 
+  transition: all 0.5s ease;
+}
+.sidebar-nav a:hover{
+  background: var(--background-header);
+  color: var(--border-color);
+  border: 1px solid var(--border-color);
+  transition: all 2s ease;
+  border-radius: 20px; 
+  align-items: center;
+}
+
+
+
+
+
+
 
 .live{
   display: inline;
@@ -90,4 +135,21 @@ body {
   object-fit: cover;
   
 }
+.fragile{
+  font-size: 10vw;
 
+  top: 40%;
+  left: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  direction: ltr;
+}
+.FRA{
+  color: var(--border-color);
+}
+.GILE{
+  color: rgb(0, 179, 255);
+}
