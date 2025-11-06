@@ -6,44 +6,35 @@
   --text-color : rgb(255,255,255);
 }
 
-header div{
-    display: block;
-    top: 100px;
-}
-nav {
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 20px; 
   border: 1px solid rgb(0, 0, 0);
   background: var(--background-header);
-  border-radius: 50px; 
-  padding: 10px 00px 20px 00px;
-  width: 100%;
-  height: 20px;
-  display: flexbox;
+  align-items: center;
+}
+nav {
+  padding: 10px 00px ;
   align-content: center;
 }
-nav div{
-  display: inline;
-  width:auto;
-  height: 20px;
-  float: none;
-  
-}
-nav .user-profile{
+
+.user-profile{
   color: var(--text-color);
   background: var(--background-header) ;
-  display: inline;
   border-radius: 50px;
-  padding: 00px 00px 00px 40px;
-  margin-top: -5px;
+  padding: 0px 20px;
   width:auto;
   height: 20px;
   float: right;
+  display: flex;
+  align-items: center;
 }
-nav .user-profile img{
+.user-profile img{
   width : 40px ;
   border-radius: 50%;
-  margin-right: 10px;
   border: 1px solid var(--border-color);
-  vertical-align: middle;
   object-fit: cover;
 }
 nav a{
@@ -62,33 +53,30 @@ nav a:hover {
   color: var(--border-color);
   border-color: var(--border-color);
 }
-nav .logo{
-  display: inline;
-  position: relative;
-  background-color:rgba(33, 33, 33, 0);
-  border-color: rgba(0, 255, 255, 0) ;
-  color: var(--border-color);
-  font-size: 40px;
-  float:inline-end;
-  padding-left: 20px;
-  transition: 1s;
-  top: -11px;
+.logo img{
+  transform: rotate(0);
+  padding: 0px 20px;
+  height: 40px;
+  border-radius: 500px;
   margin-right: 10px;
-  vertical-align:middle;
-  object-fit: cover;
+  vertical-align: middle;
+  
 }
-nav .logo:hover{
+.logo:hover{
   transform: rotate(360);
   transition: 2s;
+  border: 1px solid var(--border-color);
+  
 }
 
 body {
   font-family: 'Vazirmatn', 'Poppins', sans-serif;
   background-color: var(--background);
-  /*background-image: url(img/fjr.png);
+  color: var(--text-color);
+  background-image: url(img/fjr.png);
   background-repeat: no-repeat;
   background-position: center ;
-  background-size: cover;*/
+  background-size: cover;
 }
 
 .live{

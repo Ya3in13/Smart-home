@@ -13,21 +13,25 @@
 
   <body>
       <header>
-        <nav>
+        
           <div class="user-profile">
             <img src="{{ url_for('static', filename='img/avatar.jpg') }}"  alt="User" class="avatar">
             <span>{{ username }} خوش آمدید </span>
             <span class="arrow">▾</span>
           </div>
-          <div>
-            <a href="/home">خانه</a>
-            <a href="/cam">دوربین ها</a>
-            <a href="#">تنظیمات</a>
-          </div>
-          </div>
-          <span class="logo" ><img id="G" src="{{ url_for('static', filename='img/logoGB.PNG') }}"  alt="User" class="avatar"height="45px">
-          </span>
+
+          <nav>
+            <div>
+              <a href="/home">خانه</a>
+              <a href="/cam">دوربین ها</a>
+              <a href="#">تنظیمات</a>
+            </div>
           </nav>
+          
+          <div class="logo">
+            <img  src="{{ url_for('static', filename='img/logoGB.PNG') }}"  alt="User" class="avatar">
+          </div>
+          
       </header>
      
     <div class="live">
