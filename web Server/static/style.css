@@ -2,9 +2,15 @@
   --background: rgb(24, 24, 24);
   --background-header: rgb(35, 35, 35);
   --background-header-items: rgb(39, 39, 39);
-  --border-color: rgb(250,200,70);
+  --border-color: rgb(255,204,71);
   --text-color : rgb(255,255,255);
   --header-height : 7vh;
+  --border-radius: 20px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
   font-family: 'Vazirmatn', 'Poppins', sans-serif;
@@ -21,8 +27,10 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin: 1vh 1vh 0vh 1vh;
+  padding: 0px 00px 0px 0px;
   height: var(--header-height);
-  border-radius: 20px; 
+  border-radius: 20px 20px 0px 20px; 
   background: var(--background-header);
 }
 nav {
@@ -34,15 +42,12 @@ nav {
   color: var(--text-color);
   background: var(--background-header) ;
   border-radius: 50px;
-  padding: 0px 20px;
   width:auto;
-  float: right;
   display: flex;
   align-items: center;
 }
 .user-profile img{
-  width : 7vh;
-  height: 7vh;
+  height: var(--header-height);
   border-radius: 50%;
   border: 1px solid var(--border-color);
   object-fit: cover;
@@ -56,7 +61,7 @@ nav a{
   padding: 6px 14px;
   font-size: 20px;
   border-radius: 20px;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 nav a:hover {
   background-color: var(--background-header);
@@ -64,19 +69,22 @@ nav a:hover {
   border-color: var(--border-color);
 }
 .logo img{
-  padding: 0px 20px;
-  height: 40px;
-  border-radius: 50%;
+  height: var(--header-height);
   margin-right: 10px;
   vertical-align: middle;
-  transition: 1s;
+  transition: .5s;
+  transform: rotate(0deg);
 }
-.logo:hover{
-  transform: rotate(360);
+.logo img:hover{
+  transform:translate(-300px, 00px);
 }
 
 main{
   display: flex;
+  background-color: var(--background-header);
+  border-radius: 20px 00px 20px 20px;
+  margin: 0vh 1vh;
+  
 }
 
 .sidebar-nav{
@@ -86,11 +94,9 @@ main{
   font-size: 20px;
   display: flex;
   flex-direction: column;
-  border-radius: 20px; 
+  border-radius: 0px 0px 20px 20px; 
   align-items: center;
-  width: 200px;
-  height: 87vh;
-  padding: 10px 0px ;
+  height: 91vh;
   overflow-y: auto;
 }
 .sidebar-nav a{
@@ -108,7 +114,7 @@ main{
   text-decoration: none;
   font-size: 18px;
   border-radius: 20px; 
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 .sidebar-nav a:hover{
   background: var(--background-header);
@@ -119,14 +125,30 @@ main{
   align-items: center;
 }
 #toggleBtn{
-  display: none;
+  height: var(--header-height);
+  width: var(--header-height);
+  border-radius: 50%;
+  border: 1px solid var(--background-header);
+  background-color: var(--background-header);
+  color: var(--text-color); 
+  font-size: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#toggleBtn:hover{
+  border: 1px solid var(--border-color);
+  color: var(--border-color);
 }
 
 
 
-
-.conten{
+#content{
   display: flex;
+  flex: 1;
+  background-color: rgb(24, 24, 24);
+  border-radius: 20px;
+  margin: 1vh;
 }
 
 .live{
@@ -149,7 +171,6 @@ main{
   font-weight: bold;
   display: flex;
   gap: 1vw;
-  z-index: 1;
   pointer-events: none;
   direction: ltr;
   text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
