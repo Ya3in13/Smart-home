@@ -4,6 +4,7 @@
   --background-header-items: rgb(39, 39, 39);
   --border-color: rgb(250,200,70);
   --text-color : rgb(255,255,255);
+  --header-height : 7vh;
 }
 body {
   font-family: 'Vazirmatn', 'Poppins', sans-serif;
@@ -19,9 +20,10 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
   border-radius: 20px; 
   background: var(--background-header);
-  align-items: center;
 }
 nav {
   padding: 10px 00px ;
@@ -34,13 +36,13 @@ nav {
   border-radius: 50px;
   padding: 0px 20px;
   width:auto;
-  height: 20px;
   float: right;
   display: flex;
   align-items: center;
 }
 .user-profile img{
-  width : 40px ;
+  width : 7vh;
+  height: 7vh;
   border-radius: 50%;
   border: 1px solid var(--border-color);
   object-fit: cover;
@@ -62,17 +64,15 @@ nav a:hover {
   border-color: var(--border-color);
 }
 .logo img{
-  transform: rotate(0);
   padding: 0px 20px;
   height: 40px;
-  border-radius: 500px;
+  border-radius: 50%;
   margin-right: 10px;
   vertical-align: middle;
-  
+  transition: 1s;
 }
 .logo:hover{
   transform: rotate(360);
-  transition: 1s;
 }
 
 main{
@@ -89,8 +89,9 @@ main{
   border-radius: 20px; 
   align-items: center;
   width: 200px;
-  height: 28em;
+  height: 87vh;
   padding: 10px 0px ;
+  overflow-y: auto;
 }
 .sidebar-nav a{
   background-color: var(--background-header-items);
@@ -102,8 +103,8 @@ main{
   align-items: center;
   gap: 10px;
   padding: 10px 20px ;
-  width: 158px;
   margin: 3px 0px ;
+  width: 158px;
   text-decoration: none;
   font-size: 18px;
   border-radius: 20px; 
@@ -111,41 +112,47 @@ main{
 }
 .sidebar-nav a:hover{
   background: var(--background-header);
-  color: var(--border-color);
+  color: var(--border-color) ;
   border: 1px solid var(--border-color);
   transition: all 2s ease;
   border-radius: 20px; 
   align-items: center;
 }
+#toggleBtn{
+  display: none;
+}
 
 
 
 
-
-
+.conten{
+  display: flex;
+}
 
 .live{
   display: inline;
 }
 .live video{
   background-color: var(--background);
-  width: 30vw;
+  width: 20vw;
   padding: 5px;
   border-radius: 30px ;
   object-fit: cover;
   
 }
 .fragile{
-  font-size: 10vw;
-
-  top: 40%;
-  left: 40%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12vw;
+  font-weight: bold;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   gap: 1vw;
+  z-index: 1;
+  pointer-events: none;
   direction: ltr;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 .FRA{
   color: var(--border-color);
