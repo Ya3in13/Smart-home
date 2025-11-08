@@ -28,7 +28,7 @@ header {
   justify-content: space-between;
   align-items: center;
   margin: 1vh 1vh 0vh 1vh;
-  padding: 0px 00px 0px 0px;
+  padding: 0px 1vh;
   height: var(--header-height);
   border-radius: 20px 20px 0px 20px; 
   background: var(--background-header);
@@ -47,7 +47,7 @@ nav {
   align-items: center;
 }
 .user-profile img{
-  height: var(--header-height);
+  height: 6vh;
   border-radius: 50%;
   border: 1px solid var(--border-color);
   object-fit: cover;
@@ -68,15 +68,17 @@ nav a:hover {
   color: var(--border-color);
   border-color: var(--border-color);
 }
+.logo{
+  display: flex;
+  align-items: center;
+  cursor: wait;
+}
 .logo img{
-  height: var(--header-height);
+  height: 6vh;
   margin-right: 10px;
   vertical-align: middle;
   transition: .5s;
   transform: rotate(0deg);
-}
-.logo img:hover{
-  transform:translate(-300px, 00px);
 }
 
 main{
@@ -84,7 +86,6 @@ main{
   background-color: var(--background-header);
   border-radius: 20px 00px 20px 20px;
   margin: 0vh 1vh;
-  
 }
 
 .sidebar-nav{
@@ -131,7 +132,7 @@ main{
   border: 1px solid var(--background-header);
   background-color: var(--background-header);
   color: var(--text-color); 
-  font-size: 20px;
+  font-size: 18px;
   vertical-align: middle;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -147,21 +148,35 @@ main{
   display: flex;
   flex: 1;
   background-color: rgb(24, 24, 24);
-  border-radius: 20px;
-  margin: 1vh;
+  border-radius: 20px 20px 0px 20px;
+  height: 91vh;
+  overflow-y: auto;
+}
+.cams {
+  display: flex;
+  flex-wrap: wrap;                    /* مهم: ردیف جدید */
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: auto;                 /* اسکرول افقی رو حذف */
+  justify-content: center;           /* وسط‌چین */
 }
 
-.live{
-  display: inline;
+.live {
+  flex: 1;
+  min-width: 300px;                   /* حداقل عرض هر دوربین */
+  max-width: 500px;                   /* حداکثر عرض (اختیاری) */
+  border-radius: 30px;
+  overflow: hidden;
 }
-.live video{
-  background-color: var(--background);
-  width: 20vw;
-  padding: 5px;
-  border-radius: 30px ;
+
+.live video {
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
   object-fit: cover;
-  
 }
+
 .fragile{
   position: fixed;
   top: 50%;
@@ -176,8 +191,55 @@ main{
   text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 .FRA{
-  color: var(--border-color);
+  color: rgba(255, 203, 71, 0.41);
 }
 .GILE{
-  color: rgb(0, 179, 255);
+  color: rgba(0, 179, 255, 0.4);
+}
+hr {
+  border: none;
+  border-top: 3px double #333333;
+  color: #333333;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+}
+
+hr::after {
+  background: rgba(255, 255, 255, 0.4);
+  content: "";
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+}
+
+
+
+/* ریسپانسیو */
+/* MOBILE */
+@media (max-width: 768px) {
+  #toggleBtn { display: block; }
+  nav { display: none; }
+  .sidebar-nav {
+    position: fixed;
+    right: -260px;
+    top: 0;
+    height: 100vh;
+    width: 220px;
+    border-radius: 0;
+    z-index: 1000;
+  }
+    .sidebar-nav {
+    position: fixed;
+    right: -260px;
+    top: 0;
+    height: 100vh;
+    width: 220px;
+    border-radius: 0;
+    z-index: 1000;
+  }
+  .sidebar-nav.open {
+    right: 0;
+  }
+
 }

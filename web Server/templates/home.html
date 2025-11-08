@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>FRAGILE</title>
+    <title>{{ project }}{{ name }}</title>
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -15,9 +15,7 @@
       <header>
 
           <div class="logo">
-          <button id="toggleBtn" class="toggle-btn">
-            <i class="fas fa-angle-left"></i>
-           </button>
+            <button id="toggleBtn"><i class="fa fa-bars"></i></button>
 
             <img  src="{{ url_for('static', filename='img/logoGB.PNG') }}"  alt="User" class="avatar">
           </div>
@@ -51,7 +49,7 @@
       <!-- بخش محتوای اصلی -->
       <div id="content">
         <div class="fragile">
-         <h4><b class="FRA">FRA</b><b class="GILE">GILE</b></h4>
+         <h4><b class="FRA">{{ project }}</b><b class="GILE">{{ name }}</b></h4>
          <hr>
          <h6>test</h6>
         </div>
