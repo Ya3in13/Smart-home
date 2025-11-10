@@ -16,7 +16,7 @@ body {
   font-family: 'Vazirmatn', 'Poppins', sans-serif;
   background-color: var(--background);
   color: var(--text-color);
-  background-image: url(img/fjr.png);
+  background-image: url(img/fjr0.png);
   background-repeat: no-repeat;
   background-position: center ;
   background-size: cover;
@@ -155,7 +155,7 @@ main{
 .cams {
   display: flex;
   flex-wrap: wrap;                    /* مهم: ردیف جدید */
-  gap: 16px;
+  gap: 10px;
   width: 100%;
   box-sizing: border-box;
   overflow: auto;                 /* اسکرول افقی رو حذف */
@@ -164,10 +164,10 @@ main{
 
 .live {
   flex: 1;
-  min-width: 300px;                   /* حداقل عرض هر دوربین */
+  min-width: 400px;                   /* حداقل عرض هر دوربین */
   max-width: 500px;                   /* حداکثر عرض (اختیاری) */
   border-radius: 30px;
-  overflow: hidden;
+  background-color: var(--background-header-items);
 }
 
 .live video {
@@ -176,7 +176,9 @@ main{
   border-radius: 28px;
   object-fit: cover;
 }
-
+.live p{
+  justify-self: center;
+}
 .fragile{
   position: fixed;
   top: 50%;
@@ -243,3 +245,4 @@ hr::after {
   }
 
 }
+
