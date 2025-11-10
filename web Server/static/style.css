@@ -2,96 +2,247 @@
   --background: rgb(24, 24, 24);
   --background-header: rgb(35, 35, 35);
   --background-header-items: rgb(39, 39, 39);
-  --border-color: rgb(250,200,70);
+  --border-color: rgb(255,204,71);
   --text-color : rgb(255,255,255);
+  --header-height : 7vh;
+  --border-radius: 20px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Vazirmatn', 'Poppins', sans-serif;
+  background-color: var(--background);
+  color: var(--text-color);
+  background-image: url(img/fjr0.png);
+  background-repeat: no-repeat;
+  background-position: center ;
+  background-size: cover;
 }
 
-header div{
-    display: block;
-    top: 100px;
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1vh 1vh 0vh 1vh;
+  padding: 0px 1vh;
+  height: var(--header-height);
+  border-radius: 20px 20px 0px 20px; 
+  background: var(--background-header);
 }
 nav {
-  border: 1px solid rgb(0, 0, 0);
-  background: var(--background-header);
-  border-radius: 50px; 
-  padding: 10px 00px 20px 00px;
-  width: 100%;
-  height: 20px;
-  display: flexbox;
+  padding: 10px 00px ;
   align-content: center;
 }
-nav div{
-  display: inline;
-  width:auto;
-  height: 20px;
-  float: none;
-  
-}
-nav .user-profile{
+
+.user-profile{
   color: var(--text-color);
   background: var(--background-header) ;
-  display: inline;
   border-radius: 50px;
-  padding: 00px 00px 00px 40px;
-  margin-top: -5px;
   width:auto;
-  height: 20px;
-  float: right;
+  display: flex;
+  align-items: center;
 }
-nav .user-profile img{
-  width : 40px ;
+.user-profile img{
+  height: 6vh;
   border-radius: 50%;
-  margin-right: 10px;
   border: 1px solid var(--border-color);
-  vertical-align: middle;
   object-fit: cover;
 }
 nav a{
+  color: var(--text-color);
   border: 1px solid var(--background-header-items);
   background-color: var(--background-header-items);
-  color: rgb(255, 255, 255);
   text-decoration: none;
   margin: 0 auto;
   padding: 6px 14px;
   font-size: 20px;
   border-radius: 20px;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 nav a:hover {
   background-color: var(--background-header);
   color: var(--border-color);
   border-color: var(--border-color);
 }
-nav .MHA{
-  position: relative;
-  background-color:rgba(33, 33, 33, 0);
-  border-color: rgba(0, 255, 255, 0) ;
+.logo{
+  display: flex;
+  align-items: center;
+  cursor: wait;
+}
+.logo img{
+  height: 6vh;
+  margin-right: 10px;
+  vertical-align: middle;
+  transition: .5s;
+  transform: rotate(0deg);
+}
+
+main{
+  display: flex;
+  background-color: var(--background-header);
+  border-radius: 20px 00px 20px 20px;
+  margin: 0vh 1vh;
+}
+
+.sidebar-nav{
+  background: var(--background-header);
+  color: var(--text-color);
+  border-color: var(--border-color);
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0px 0px 20px 20px; 
+  align-items: center;
+  height: 91vh;
+  overflow-y: auto;
+}
+.sidebar-nav a{
+  background-color: var(--background-header-items);
+  color: var(--text-color);
+  border: 1px solid var(--background-header-items);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px ;
+  margin: 3px 0px ;
+  width: 158px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 20px; 
+  transition: all 0.3s ease;
+}
+.sidebar-nav a:hover{
+  background: var(--background-header);
+  color: var(--border-color) ;
+  border: 1px solid var(--border-color);
+  transition: all 2s ease;
+  border-radius: 20px; 
+  align-items: center;
+}
+#toggleBtn{
+  height: var(--header-height);
+  width: var(--header-height);
+  border-radius: 50%;
+  border: 1px solid var(--background-header);
+  background-color: var(--background-header);
+  color: var(--text-color); 
+  font-size: 18px;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#toggleBtn:hover{
+  border: 1px solid var(--border-color);
   color: var(--border-color);
-  font-size: 40px;
-  float:inline-end;
-  padding-left: 20px;
-  transition: 0s;
-  top: -11px;
-}
-.MHA:hover{
-  border: 0px;
-  background-color: rgba(0, 0, 0, 0);
 }
 
-body {
-  font-family: 'Vazirmatn', 'Poppins', sans-serif;
-  background-color: var(--background);
+
+
+#content{
+  display: flex;
+  flex: 1;
+  background-color: rgb(24, 24, 24);
+  border-radius: 20px 20px 0px 20px;
+  height: 91vh;
+  overflow-y: auto;
+}
+.cams {
+  display: flex;
+  flex-wrap: wrap;                    /* مهم: ردیف جدید */
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: auto;                 /* اسکرول افقی رو حذف */
+  justify-content: center;           /* وسط‌چین */
 }
 
-.live{
-  display: inline;
+.live {
+  flex: 1;
+  min-width: 400px;                   /* حداقل عرض هر دوربین */
+  max-width: 500px;                   /* حداکثر عرض (اختیاری) */
+  border-radius: 30px;
+  background-color: var(--background-header-items);
 }
-.live video{
-  background-color: var(--background);
-  width: 30vw;
-  padding: 5px;
-  border-radius: 30px ;
+
+.live video {
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
   object-fit: cover;
-  
+}
+.live p{
+  justify-self: center;
+}
+.fragile{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12vw;
+  font-weight: bold;
+  display: flex;
+  gap: 1vw;
+  pointer-events: none;
+  direction: ltr;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+}
+.FRA{
+  color: rgba(255, 203, 71, 0.41);
+}
+.GILE{
+  color: rgba(0, 179, 255, 0.4);
+}
+hr {
+  border: none;
+  border-top: 3px double #333333;
+  color: #333333;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+}
+
+hr::after {
+  background: rgba(255, 255, 255, 0.4);
+  content: "";
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+}
+
+
+
+/* ریسپانسیو */
+/* MOBILE */
+@media (max-width: 768px) {
+  #toggleBtn { display: block; }
+  nav { display: none; }
+  .sidebar-nav {
+    position: fixed;
+    right: -260px;
+    top: 0;
+    height: 100vh;
+    width: 220px;
+    border-radius: 0;
+    z-index: 1000;
+  }
+    .sidebar-nav {
+    position: fixed;
+    right: -260px;
+    top: 0;
+    height: 100vh;
+    width: 220px;
+    border-radius: 0;
+    z-index: 1000;
+  }
+  .sidebar-nav.open {
+    right: 0;
+  }
+
 }
 

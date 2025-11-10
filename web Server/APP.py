@@ -3,6 +3,9 @@ from flask import Flask, render_template, redirect, url_for, request, jsonify
 app = Flask(__name__)
 
 # شبیه‌سازی وضعیت دستگاه‌ها
+username= "YASIN"
+project= "FRA"
+name= "GILE"
 devices = {
     "light": {"status": "on", "intensity": 80},
     "ac": {"status": "cooling", "temp": 23},
@@ -16,11 +19,11 @@ def index():
 
 @app.route('/home')
 def dashboard():
-    return render_template('home.html', devices=devices, username="Yasin")
+    return render_template('home.html', devices=devices, username=username, project=project, name=name)
 
 @app.route('/cam')
 def cam():
-    return render_template('cam.html', devices=devices, username="Yasin")
+    return render_template('cam.html', devices=devices, username=username, project=project, name=name)
 
 @app.route('/update', methods=['POST'])
 def update_device():
@@ -40,4 +43,4 @@ def get_devices():
     return jsonify(devices)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=True)
