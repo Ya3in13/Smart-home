@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
-    <meta http-equiv="refresh" content="100">
+    <meta http-equiv="refresh" content="20">
   </head>
 
   <body>
@@ -56,27 +56,33 @@
         </div>
 
       <div class="cams">
+        
         <div class="live">
-          <video  autoplay muted src="{{ url_for('static', filename='img/test4.mp4') }}" ></video>      
+          <video  autoplay muted src="{{ url_for('static', filename='img/test4.mp4') }}" ></video>  
+          <p>cam1</p>    
         </div> 
         <div class="live">
           <video  autoplay muted src="{{ url_for('static', filename='img/test3.mp4') }}" ></video>   
+          <p>cam2</p>    
         </div>    
 
         <div class="live">
-          <video autoplay muted src="{{ url_for('static', filename='img/test4.mp4') }}" ></video>      
+          <video id="myVideo1" autoplay muted src="{{ url_for('static', filename='img/test4.mp4') }}" ></video>
+          <p>cam3</p>          
         </div> 
         <div class="live">
           <video id="myVideo" autoplay muted src="{{ url_for('static', filename='img/test3.mp4') }}" ></video>  
+          <p>cam4</p>    
         </div>    
         
-  <!-- دوربین IP Webcam Pro -->
+
   <div class="live">
-    <img src="http://10.227.121.189:8080/video" alt="دوربین موبایل" height="300"> پخش زنده
+    <img src="http://192.168.1.102:80800/video" alt= "" height="300"> 
+          <p>LIVE Cam1</p>    
   </div>
 
 
-      <!--  <div class="live">
+<!--  <div class="live">
         <video autoplay muted loop><source src="{{ url_for('static', filename='img/test4.mp4') }}" type="video/mp4"></video>
         </div>
         
@@ -120,7 +126,10 @@
         <script>
           // وقتی ویدیو آماده شد، به ثانیه 40 برو
           document.getElementById('myVideo').addEventListener('loadedmetadata', function() {
-            this.currentTime = 40;  // شروع از ثانیه 40
+            this.currentTime = 140;  // شروع از ثانیه 40
+          });
+          document.getElementById('myVideo1').addEventListener('loadedmetadata', function() {
+            this.currentTime = 220;  // شروع از ثانیه 40
           });
         </script>
       </div>      
