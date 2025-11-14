@@ -4,119 +4,138 @@ import cv2
 import os
 import time
 from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor
+from functools import partial
+
+# ==================== تنظیمات اصلی ====================
+USE_GPU = False          # فقط این رو تغییر بده: True → GPU | False → CPU
+MAX_WORKERS = 1         # فقط برای CPU: 2–6 | برای GPU: 1 (بهتر)
+BATCH_SIZE = 1          # برای GPU می‌تونی 4–8 بذاری (در آینده)
+# =====================================================
 
 # --- مسیرها ---
-current_dir = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(current_dir, "yolov11n.pt")
-test_folder = os.path.join(current_dir, "test")
-output_folder = os.path.join(current_dir, "results")
-log_folder = os.path.join(current_dir, "log")
 
-# --- ایجاد پوشه‌های خروجی و لاگ ---
-os.makedirs(output_folder, exist_ok=True)
-os.makedirs(log_folder, exist_ok=True)
+datetimeStart = datetime.now()
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(SCRIPT_DIR, "yolov11n.pt")
+TEST_FOLDER = os.path.join(SCRIPT_DIR, "test")
+OUTPUT_FOLDER = os.path.join(SCRIPT_DIR, "results")
+LOG_FOLDER = os.path.join(SCRIPT_DIR, "log")
 
-# --- فایل لاگ با نام زمانی ---
-log_filename = datetime.now().strftime("run_%Y%m%d_%H%M%S.log")
-log_path = os.path.join(log_folder, log_filename)
+os.makedirs(OUTPUT_FOLDER, exist_ok=True)
+os.makedirs(LOG_FOLDER, exist_ok=True)
 
-# --- تابع نوشتن در لاگ (هم کنسول، هم فایل) ---
-def log_print(*args, **kwargs):
-    message = " ".join(map(str, args))
-    print(message, **kwargs)
-    with open(log_path, "a", encoding="utf-8") as f:
-        print(message, file=f, **kwargs)
+LOG_FILE = os.path.join(LOG_FOLDER, datetime.now().strftime("run_%Y%m%d_%H%M%S.log"))
+
+def log(*msg):
+    line = " ".join(map(str, msg))
+    print(line)
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        print(line, file=f)
+
+# --- تشخیص دستگاه ---
+device = 'cuda' if USE_GPU and os.system("nvidia-smi >nul 2>&1") == 0 else 'cpu'
+if USE_GPU and device == 'cpu':
+    log("Warning: GPU requested but not available. Falling back to CPU.")
+log(f"Using device: {device.upper()}")
 
 # --- شروع لاگ ---
-log_print(f"\n{'='*60}")
-log_print(f"MHA-python-test-YOLOv11")
-log_print(f"YOLOv11 Inference Batch Run")
-log_print(f"Start time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-log_print(f"Model: {model_path}")
-log_print(f"Input folder: {test_folder}")
-log_print(f"Output folder: {output_folder}")
-log_print(f"Log file: {log_path}")
-log_print(f"{'='*60}\n")
+log("\n" + "="*70)
+log("MHA-python-test-YOLOv11")
+log(f"YOLOv11 Batch Inference ({'GPU' if device == 'cuda' else 'CPU'} + {'Parallel' if MAX_WORKERS > 1 else 'Sequential'})")
+log(f"Start: {datetime.now():%Y-%m-%d %H:%M:%S}")
+log(f"Model: {MODEL_PATH}")
+log(f"Input: {TEST_FOLDER}")
+log(f"Output: {OUTPUT_FOLDER}")
+log(f"Log: {LOG_FILE}")
+log("="*70 + "\n")
 
-# --- بررسی وجود فایل مدل ---
-if not os.path.exists(model_path):
-    log_print(f"Error: model not found!\n   {model_path}")
-    exit()
+# --- اعتبارسنجی ---
+if not os.path.isfile(MODEL_PATH):
+    log(f"Error: Model not found: {MODEL_PATH}")
+    exit(1)
+if not os.path.isdir(TEST_FOLDER):
+    log(f"Error: Test folder not found: {TEST_FOLDER}")
+    exit(1)
 
-# --- بررسی وجود پوشه test ---
-if not os.path.exists(test_folder):
-    log_print(f"Error: test folder not found!\n   {test_folder}")
-    exit()
+# --- بارگذاری مدل ---
+log(f"Loading model on {device}...")
+t0 = time.perf_counter()
+model = YOLO(MODEL_PATH)
+if device == 'cuda':
+    model.to('cuda')
+model_load_time = time.perf_counter() - t0
+log(f"Model loaded in {model_load_time:.3f}s\n")
 
-# --- مرحله ۱: بارگذاری مدل ---
-log_print("Loading YOLOv11 model...")
-t_start = time.perf_counter()
-model = YOLO(model_path)
-t_model = time.perf_counter()
-model_load_time = t_model - t_start
-log_print(f"Model loaded successfully. Time: {model_load_time:.3f}s\n")
+# --- اسکن تصاویر ---
+IMG_EXTS = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff'}
+images = [f for f in os.listdir(TEST_FOLDER) if os.path.splitext(f)[1].lower() in IMG_EXTS]
+if not images:
+    log("No images found.")
+    exit(0)
 
-# --- لیست فایل‌های تصویری ---
-image_extensions = ('.jpg', '.jpeg', '.png', '.bmp', '.tiff')
-image_files = [
-    f for f in os.listdir(test_folder)
-    if f.lower().endswith(image_extensions)
-]
+log(f"Found {len(images)} image(s). Starting inference...\n")
 
-if not image_files:
-    log_print("No image files found in 'test' folder.")
-    log_print(f"Total time: {time.perf_counter() - t_start:.3f}s")
-    log_print(f"{'='*60}")
-    exit()
+# --- تابع پردازش ---
+def process_image(model, filename, idx, total):
+    img_path = os.path.join(TEST_FOLDER, filename)
+    out_path = os.path.join(OUTPUT_FOLDER, f"result_{filename}")
 
-log_print(f"Found {len(image_files)} image(s). Starting inference...\n")
-
-# --- حلقه روی تصاویر ---
-total_inference_time = 0
-inference_times = []
-
-for idx, filename in enumerate(image_files, 1):
-    img_path = os.path.join(test_folder, filename)
-    output_path = os.path.join(output_folder, f"result_{filename}")
-
-    # --- تشخیص ---
     t1 = time.perf_counter()
-    results = model(img_path)[0]
+    result = model(img_path, device=device, verbose=False)[0]
     t2 = time.perf_counter()
-    inference_time = t2 - t1
-    total_inference_time += inference_time
-    inference_times.append(inference_time)
+    inf_time = t2 - t1
+    fps = 1 / inf_time if inf_time > 0 else 0
 
-    # --- اعمال نتایج ---
-    annotated_img = results.plot()
+    annotated = result.plot()
+    success = cv2.imwrite(out_path, annotated)
 
-    # --- ذخیره ---
-    save_success = cv2.imwrite(output_path, annotated_img)
+    obj_count = len(result.boxes) if result.boxes is not None else 0
 
-    # --- لاگ هر تصویر ---
-    status = "Success" if save_success else "Failed"
-    log_print(f"[{idx}/{len(image_files)}] {filename}")
-    log_print(f"    -> {output_path}")
-    log_print(f"    Inference: {inference_time:.3f}s | FPS: {1/inference_time:.1f} | Status: {status}")
+    log(f"[{idx}/{total}] {filename}")
+    log(f"    -> {out_path}")
+    log(f"    Inf: {inf_time:.3f}s | FPS: {fps:.1f} | Obj: {obj_count} | {'Success' if success else 'Failed'}")
+    return inf_time, obj_count
 
-    # --- نمایش تعداد اشیاء تشخیص داده شده (اختیاری) ---
-    num_objects = len(results.boxes) if results.boxes is not None else 0
-    log_print(f"    Detected objects: {num_objects}")
+# --- اجرای موازی (فقط برای CPU) ---
+total_inf_time = 0
+obj_counts = []
 
-# --- خلاصه نهایی ---
-total_time = time.perf_counter() - t_start
-avg_inference = total_inference_time / len(image_files)
-avg_fps = 1 / avg_inference if avg_inference > 0 else 0
+if device == 'cpu' and MAX_WORKERS > 1:
+    # CPU: موازی برای I/O
+    log(f"Using {MAX_WORKERS} threads for CPU parallel I/O...")
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        func = partial(process_image, model)
+        tasks = [executor.submit(func, img, i+1, len(images)) for i, img in enumerate(images)]
+        for future in tasks:
+            inf_time, obj_count = future.result()
+            total_inf_time += inf_time
+            obj_counts.append(obj_count)
+else:
+    # GPU یا CPU تک‌ترد: ترتیبی
+    log("Running sequentially (GPU or single-thread CPU)...")
+    for idx, img in enumerate(images, 1):
+        inf_time, obj_count = process_image(model, img, idx, len(images))
+        total_inf_time += inf_time
+        obj_counts.append(obj_count)
 
-log_print("\n" + "="*60)
-log_print("SUMMARY")
-log_print(f"Processed images: {len(image_files)}")
-log_print(f"Total time: {total_time:.3f}s")
-log_print(f"Model load time: {model_load_time:.3f}s")
-log_print(f"Inference total: {total_inference_time:.3f}s")
-log_print(f"Average inference: {avg_inference:.3f}s/image")
-log_print(f"Average FPS: {avg_fps:.1f}")
-log_print(f"Results saved in: {output_folder}")
-log_print(f"Log saved in: {log_path}")
-log_print(f"End time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-log_print("="*60 + "\n")
+# --- خلاصه ---
+total_time = time.perf_counter() - t0
+avg_inf = total_inf_time / len(images)
+avg_fps = 1 / avg_inf if avg_inf > 0 else 0
+
+log("\n" + "="*70)
+log("SUMMARY")
+log(f"Device: {device.upper()}")
+log(f"Images: {len(images)}")
+log(f"Total time: {total_time:.3f}s")
+log(f"Model load: {model_load_time:.3f}s")
+log(f"Inference: {total_inf_time:.3f}s")
+log(f"Avg inf: {avg_inf:.3f}s/image")
+log(f"Avg FPS: {avg_fps:.1f}")
+log(f"Total objects: {sum(obj_counts)}")
+log(f"Results: {OUTPUT_FOLDER}")
+log(f"Log: {LOG_FILE}")
+log(f"Start: {datetimeStart:%Y-%m-%d %H:%M:%S}")
+log(f"End: {datetime.now():%Y-%m-%d %H:%M:%S}")
+log("="*70 + "\n")
