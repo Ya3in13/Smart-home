@@ -17,7 +17,7 @@ BATCH_SIZE = 1          # برای GPU می‌تونی 4–8 بذاری (در آ
 
 datetimeStart = datetime.now()
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(SCRIPT_DIR, "yolov11n.pt")
+MODEL_PATH = os.path.join(SCRIPT_DIR, "models", "bestv1.pt")
 TEST_FOLDER = os.path.join(SCRIPT_DIR, "test")
 OUTPUT_FOLDER = os.path.join(SCRIPT_DIR, "results")
 LOG_FOLDER = os.path.join(SCRIPT_DIR, "log")
