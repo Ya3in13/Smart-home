@@ -1,0 +1,263 @@
+/*
+  style.css
+  توضیح: استایل‌های پایه برای داشبورد.
+  بخش‌ها:
+    - متغیرهای root برای تم رنگی
+    - استایل‌های کلی (reset / layout)
+    - سایدبار (حالت expand / collapse)
+    - محتوای اصلی (header و content)
+*/
+
+/* متغیرهای تم */
+:root{
+  --bg:#6d6d6d;
+  --sidebar:#1e2c43;
+  --muted:#9aa6b2;
+  --accent:#4f46e5;
+  --white:#e9e8e8;
+}
+
+/* پایه */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Tahoma, "Segoe UI", Roboto, sans-serif;background:var(--bg);color:#0b1220}
+
+/* چیدمان کلی: container افقی با سایدبار و محتوای اصلی */
+.wrap{display:flex;height:100vh;}
+
+/* ------------------ SIDEBAR ------------------ */
+/* نوار کناری: شامل حالت باز (عرض کامل) و حالت جمع‌شده (collapsed) */
+.sidebar{
+  width:260px;                /* عرض در حالت باز */
+  background:linear-gradient(180deg,#1f0324,#01152e);
+  color:var(--white);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:width .22s ease;
+  border-right:1px solid rgba(255,255,255,0.03);
+  position:relative;
+  direction:rtl;
+}
+
+/* حالت جمع‌شده: فقط آیکون‌ها دیده می‌شود */
+.sidebar.collapsed{ width:72px; }
+
+/* بالای سایدبار: برند و دکمه تغییر حالت */
+.topbar{ display:flex; align-items:center; justify-content:space-between; padding:18px; gap:8px; }
+.brand{
+  width:44px;height:44px;border-radius:10px;background:#0ea5a9;display:flex;align-items:center;justify-content:center;font-weight:700;
+  box-shadow:0 4px 4px rgba(14,165,169,0.12);
+  color:white;
+}
+.toggle-btn{
+  background:transparent;border:none;color:rgba(255,255,255,0.8);font-size:18px;padding:6px;border-radius:8px;cursor:pointer;
+}
+.toggle-btn:hover{ background:rgba(255, 255, 255, 0); }
+
+/* منو */
+.nav ul, .bottom ul{ list-style:none;padding:0;margin:0; display:flex; flex-direction:column; gap:8px;}
+.nav li, .bottom li{ position:relative; margin:0px 0; }
+
+.nav a{
+  display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--white);
+  padding:12px 18px;border-radius:10px;margin:4px 8px; transition:all .18s;
+}
+.nav a .label{ font-size:14px; font-weight:600; }
+
+/* استایل آیکون‌ها */
+.nav a i{ font-size:18px; width:18px; text-align:center; color:rgba(255,255,255,0.9); }
+
+/* افکت hover */
+.nav a:hover{ background:rgba(255,255,255,0.03); transform:translateX(-4px); }
+
+/* تولتیپ زمانی که سایدبار جمع است (نمایش متن آیتم به صورت شناور) */
+.nav li::after{
+  content: attr(data-label);
+  position:absolute;
+  right:100%;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(11,17,34,0.95);
+  color:var(--white);
+  padding:8px 10px;
+  border-radius:8px;
+  white-space:nowrap;
+  font: size 11px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .12s, transform .12s;
+  margin-right:12px;
+  box-shadow:0 6px 18px rgba(2,6,23,0.6);
+}
+/* نشان دادن تولتیپ در حالت collapsed */
+.sidebar.collapsed .nav li:hover::after,
+.sidebar.collapsed .bottom li:hover::after{
+  opacity:1;
+  transform:translateY(-50%) translateX(0);
+}
+
+/* مخفی کردن متن لیبل در حالت collapsed */
+.sidebar.collapsed .label{ display:none; }
+
+
+/* بخش پایین سایدبار */
+.bottom{ padding:14px; }
+
+/* MAIN */
+/* ------------------ MAIN (محتوای اصلی) ------------------ */
+.main{flex:1;display:flex;flex-direction:column}
+
+/* هدر اصلی */
+.header{ 
+    background: linear-gradient(90deg, #1a237e, #283593);
+    color: var(--white);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* عنوان هدر */
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* بخش راست هدر */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* آیکون‌های هدر */
+.header-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.header-icons i {
+    color: var(--white);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.5rem;
+    border-radius: 50%;
+    position: relative;
+}
+
+.header-icons i:hover {
+    color: #e3f2fd;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* واکنش‌گرایی هدر */
+@media (max-width: 720px) {
+    .header {
+        padding: 1rem;
+    }
+    
+    .header-search {
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        left: 1rem;
+        margin-top: 0.5rem;
+        background: var(--sidebar);
+        display: none;
+    }
+    
+    .header-search.active {
+        display: flex;
+    }
+    
+    .header h1 {
+        font-size: 1.25rem;
+    }
+    
+    .header-right {
+        gap: 1rem;
+    }
+}
+
+.content{ padding:22px }
+
+/* هدر و دکمه منوی موبایل - فقط در موبایل نمایش داده می‌شود */
+.header,
+.mobile-menu-btn {
+    display: none;
+}
+
+/* استایل دکمه منو */
+.mobile-menu-btn {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    transform: scale(1.1);
+}
+
+/* responsive small screens */
+/* واکنش‌گرایی: در صفحه‌های کوچک، سایدبار به صورت لانچینگ (کشویی) رفتار می‌کند */
+@media (max-width: 720px) {
+    /* نمایش هدر و دکمه منو در موبایل */
+    .header,
+    .mobile-menu-btn {
+        display: flex;
+        z-index: 60;
+    }
+
+    /* تنظیمات سایدبار موبایل */
+    .sidebar { 
+        position: fixed;
+        right: 0;  /* تغییر از left به right برای RTL */
+        top: 0;
+        bottom: 0;
+        z-index: 50;
+        transform: translateX(100%);  /* تغییر جهت transform برای RTL */
+        width: 260px;
+        background: var(--sidebar);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    /* تنظیم فاصله‌ها */
+    .wrap { 
+        padding-right: 0;
+    }
+
+    /* اضافه کردن overlay تیره پشت منو */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 45;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+}

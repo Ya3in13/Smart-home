@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>{{ project }}{{ name }}</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
+    <meta http-equiv="refresh" content="2">
+  </head>
+
+  <body>
+      <header>
+
+          <div class="logo">
+            <button id="toggleBtn"><i class="fa fa-bars"></i></button>
+
+            <img  src="{{ url_for('static', filename='img/logoGB.PNG') }}"  alt="User" class="avatar">
+          </div>
+      
+          <nav>
+            <div>
+              <a href="/home">خانه</a>
+              <a href="/cam">دوربین ها</a>
+              <a href="#">تنظیمات</a>
+            </div>
+          </nav>
+          
+          <div class="user-profile">
+            <span class="arrow">▾</span>
+            <span> {{ username }} آمدید  </span>
+            <img src="{{ url_for('static', filename='img/avatar.jpg') }}"  alt="User" class="avatar">
+          </div>
+        </header>
+      <main>
+      <!-- بخش ناوبری: آیتم‌های منو -->
+      <div class="sidebar-nav">
+        <a href="/home"><i class="fas fa-home"></i><span class="label">داشبورد</span></a>
+        <a href="/cam"><i class="fa-solid fa-camera"></i><span class="label">دوربین</span></a>
+        <a href="#"><i class="fas fa-envelope"></i><span class="label">پیام‌ها</span></a>
+        <a href="#"><i class="fas fa-chart-bar"></i><span class="label">تحلیل</span></a>
+        <a href="#"><i class="fas fa-cog"></i><span class="label">تنظیمات</span></a>
+        <a href="#"><i class="fas fa-bell"></i><span class="label">اعلان‌ها</span></a>
+        <a href="#"><i class="fas fa-user"></i><span class="label">پروفایل</span></a>
+        <a href="#"><i class="fas fa-sign-out-alt"></i><span class="label">خروج</span></a>
+      </div>
+      <!-- بخش محتوای اصلی -->
+      <div id="content">
+        <div class="fragile">
+         <h4><b class="FRA">{{ project }}</b><b class="GILE">{{ name }}</b></h4>
+         <hr>
+         <h6 ><b class="fragiletest">test</b></h6>
+        </div>
+
+        <h1>fragile</h1>
+        
+      </div>        
+      </main>
+  </body>
+</html>
