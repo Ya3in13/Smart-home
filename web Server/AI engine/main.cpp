@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 // yolo_cpp.cpp
 #include <opencv2/opencv.hpp>
 #include <opencv2/dnn.hpp>
@@ -28,3 +29,22 @@ int main() {
     waitKey(0);
     return 0;
 }
+=======
+#include <iostream>  // برای ورودی و خروجی
+
+using namespace std; // برای ساده‌نویسی
+int nam;
+
+int main() {
+     
+    while (1){    
+    nam++;
+    cout << nam << "\n" ;// چاپ پیام}    
+    }
+
+    while (1){    
+    }
+    return 0; // پایان برنامه با خروجی صفر
+
+}
+>>>>>>> Stashed changes

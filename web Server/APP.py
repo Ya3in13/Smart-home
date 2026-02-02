@@ -2,10 +2,11 @@ from flask import Flask, render_template, redirect, url_for, request, jsonify
 
 app = Flask(__name__)
 
+
 # شبیه‌سازی وضعیت دستگاه‌ها
-username= "YASIN"
-project= "FRA"
-name= "GILE"
+app.config['USERNAME'] = "YASIN"
+app.config['PROJECT'] = "FRA"
+app.config['NAME'] = "GILE"
 devices = {
     "light": {"status": "on", "intensity": 80},
     "ac": {"status": "cooling", "temp": 23},
@@ -17,13 +18,27 @@ devices = {
 def index():
     return redirect(url_for('dashboard'))
 
+
 @app.route('/home')
 def dashboard():
-    return render_template('home.html', devices=devices, username=username, project=project, name=name)
+    return render_template(
+        'home.html',
+        devices=devices,
+        username=app.config['USERNAME'],
+        project=app.config['PROJECT'],
+        name=app.config['NAME']
+    )
+
 
 @app.route('/cam')
 def cam():
-    return render_template('cam.html', devices=devices, username=username, project=project, name=name)
+    return render_template(
+        'cam.html',
+        devices=devices,
+        username=app.config['USERNAME'],
+        project=app.config['PROJECT'],
+        name=app.config['NAME']
+    )
 
 @app.route('/update', methods=['POST'])
 def update_device():
@@ -31,11 +46,14 @@ def update_device():
     device = data.get('device')
     key = data.get('key')
     value = data.get('value')
-    
-    if device in devices and key in devices[device]:
+
+    # مقداردهی پیش‌فرض اگر کلید وجود نداشت
+    if device in devices:
+        if key not in devices[device]:
+            devices[device][key] = None
         devices[device][key] = value
         return jsonify({"success": True, "devices": devices})
-    
+
     return jsonify({"success": False, "error": "Invalid device or key"}), 400
 
 @app.route('/devices')

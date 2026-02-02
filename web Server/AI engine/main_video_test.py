@@ -5,12 +5,12 @@ import os
 from datetime import datetime
 
 # ==================== تنظیمات ====================
-USE_GPU = False                    # True → GPU | False → CPU
+USE_GPU = True                    # True → GPU | False → CPU
 MODEL_PATH = "yolov11n.pt"     # مدل آموزش‌دیده  /bestv1.pt   / yolov11n.pt
-VIDEO_SOURCE = "test3.mp4"   # یا 0 برای وب‌کم
+VIDEO_SOURCE = 0   # یا 0 برای وب‌کم"test3.mp4"
 OUTPUT_PATH = "results/output_video.mp4"
 SHOW_WINDOW = True                # نمایش زنده
-SAVE_VIDEO = True                 # ذخیره ویدیو
+SAVE_VIDEO = False                 # ذخیره ویدیو
 # ================================================
 
 # --- مسیرها ---
