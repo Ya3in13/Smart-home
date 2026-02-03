@@ -1,27 +1,24 @@
 :root {
-  --background: rgba(24, 24, 24, 0.9);
-  --background-header: rgba(35, 35, 35, 0.9);
-  --background-header-items: rgba(39, 39, 39, 0.9);
-  --border-color: rgba(255, 204, 71, 1);
-  --text-color: rgba(255, 255, 255, 1);
-  --header-height: 7vh;
+  --background: rgb(24, 24, 24);
+  --background-header: rgb(35, 35, 35);
+  --background-header-items: rgb(39, 39, 39);
+  --border-color: rgb(255,204,71);
+  --text-color : rgb(255,255,255);
+  --header-height : 7vh;
   --border-radius: 20px;
 }
-
-/* ریست */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Vazirmatn', 'Poppins', sans-serif;
   background-color: var(--background);
   color: var(--text-color);
-  /*background-image: url(img/image.jpg);*/
+  background-image: url(img/fjr0.png);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center ;
   background-size: cover;
 }
 
@@ -33,32 +30,29 @@ header {
   margin: 1vh 1vh 0vh 1vh;
   padding: 0px 1vh;
   height: var(--header-height);
-  border-radius: 20px 20px 0px 20px;
+  border-radius: 20px 20px 0px 20px; 
   background: var(--background-header);
 }
-
 nav {
-  padding: 10px 00px;
+  padding: 10px 00px ;
   align-content: center;
 }
 
-.user-profile {
+.user-profile{
   color: var(--text-color);
-  background: var(--background-header);
+  background: var(--background-header) ;
   border-radius: 50px;
-  width: auto;
+  width:auto;
   display: flex;
   align-items: center;
 }
-
-.user-profile img {
+.user-profile img{
   height: 6vh;
   border-radius: 50%;
   border: 1px solid var(--border-color);
   object-fit: cover;
 }
-
-nav a {
+nav a{
   color: var(--text-color);
   border: 1px solid var(--background-header-items);
   background-color: var(--background-header-items);
@@ -69,20 +63,17 @@ nav a {
   border-radius: 20px;
   transition: all 0.3s ease;
 }
-
 nav a:hover {
   background-color: var(--background-header);
   color: var(--border-color);
   border-color: var(--border-color);
 }
-
-.logo {
+.logo{
   display: flex;
   align-items: center;
   cursor: wait;
 }
-
-.logo img {
+.logo img{
   height: 6vh;
   margin-right: 10px;
   vertical-align: middle;
@@ -90,26 +81,26 @@ nav a:hover {
   transform: rotate(0deg);
 }
 
-main {
+main{
   display: flex;
+  background-color: var(--background-header);
   border-radius: 20px 00px 20px 20px;
   margin: 0vh 1vh;
 }
 
-.sidebar-nav {
+.sidebar-nav{
   background: var(--background-header);
   color: var(--text-color);
   border-color: var(--border-color);
   font-size: 20px;
   display: flex;
   flex-direction: column;
-  border-radius: 0px 0px 20px 20px;
+  border-radius: 0px 0px 20px 20px; 
   align-items: center;
   height: 91vh;
   overflow-y: auto;
 }
-
-.sidebar-nav a {
+.sidebar-nav a{
   background-color: var(--background-header-items);
   color: var(--text-color);
   border: 1px solid var(--background-header-items);
@@ -118,99 +109,77 @@ main {
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  padding: 10px 20px;
-  margin: 3px 0px;
+  padding: 10px 20px ;
+  margin: 3px 0px ;
   width: 158px;
   text-decoration: none;
   font-size: 18px;
-  border-radius: 20px;
+  border-radius: 20px; 
   transition: all 0.3s ease;
 }
-
-.sidebar-nav a:hover {
+.sidebar-nav a:hover{
   background: var(--background-header);
-  color: var(--border-color);
+  color: var(--border-color) ;
   border: 1px solid var(--border-color);
-  transition: all .3s ease;
-  border-radius: 20px;
+  transition: all 2s ease;
+  border-radius: 20px; 
   align-items: center;
 }
-
-#toggleBtn {
+#toggleBtn{
   height: var(--header-height);
   width: var(--header-height);
   border-radius: 50%;
   border: 1px solid var(--background-header);
   background-color: var(--background-header);
-  color: var(--text-color);
+  color: var(--text-color); 
   font-size: 18px;
   vertical-align: middle;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
-#toggleBtn:hover {
+#toggleBtn:hover{
   border: 1px solid var(--border-color);
   color: var(--border-color);
 }
 
 
 
-#content {
+#content{
   display: flex;
   flex: 1;
-  background-color: var(--background);
-  border-radius: 20px 0px 20px 20px;
+  background-color: rgb(24, 24, 24);
+  border-radius: 20px 20px 0px 20px;
   height: 91vh;
   overflow-y: auto;
 }
-
 .cams {
   display: flex;
-  flex-wrap: wrap;
-  /* مهم: ردیف جدید */
+  flex-wrap: wrap;                    /* مهم: ردیف جدید */
   gap: 10px;
   width: 100%;
   box-sizing: border-box;
-  overflow: auto;
-  /* اسکرول افقی رو حذف */
-  justify-content: center;
-  /* وسط‌چین */
-
+  overflow: auto;                 /* اسکرول افقی رو حذف */
+  justify-content: center;           /* وسط‌چین */
 }
 
 .live {
   flex: 1;
-  min-width: 450px;
-  /* حداقل عرض هر دوربین */
-  max-width: 500px;
-  /* حداکثر عرض (اختیاری) */
-  border-radius: 26px;
-  height: fit-content;
+  min-width: 400px;                   /* حداقل عرض هر دوربین */
+  max-width: 500px;                   /* حداکثر عرض (اختیاری) */
+  border-radius: 30px;
   background-color: var(--background-header-items);
-  border: rgba(24, 24, 24, 1) solid 2px;
-}
-
-.live:hover {
-  color: var(--border-radius);
-  border: var(--border-color) solid 2px;
-  transition: all 0.3s ease;
 }
 
 .live video {
   width: 100%;
   height: auto;
-  border-radius: 22px 22px 0px 0px;
+  border-radius: 28px;
   object-fit: cover;
 }
-
-.live p {
+.live p{
   justify-self: center;
-
 }
-
-
-.fragile {
+.fragile{
   position: fixed;
   top: 50%;
   left: 50%;
@@ -223,19 +192,12 @@ main {
   direction: ltr;
   text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
-
-.FRA {
+.FRA{
   color: rgba(255, 203, 71, 0.41);
 }
-
-.GILE {
+.GILE{
   color: rgba(0, 179, 255, 0.4);
 }
-
-.fragiletest {
-  color: rgba(203, 255, 248, 0.675);
-}
-
 hr {
   border: none;
   border-top: 3px double #333333;
@@ -258,14 +220,8 @@ hr::after {
 /* ریسپانسیو */
 /* MOBILE */
 @media (max-width: 768px) {
-  #toggleBtn {
-    display: block;
-  }
-
-  nav {
-    display: none;
-  }
-
+  #toggleBtn { display: block; }
+  nav { display: none; }
   .sidebar-nav {
     position: fixed;
     right: -260px;
@@ -275,8 +231,7 @@ hr::after {
     border-radius: 0;
     z-index: 1000;
   }
-
-  .sidebar-nav {
+    .sidebar-nav {
     position: fixed;
     right: -260px;
     top: 0;
@@ -285,9 +240,9 @@ hr::after {
     border-radius: 0;
     z-index: 1000;
   }
-
   .sidebar-nav.open {
     right: 0;
   }
 
 }
+
