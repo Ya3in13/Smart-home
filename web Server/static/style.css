@@ -1,5 +1,6 @@
 :root {
   --background: rgb(24, 24, 24);
+  --background-content:rgb(24, 24, 24);
   --background-header: rgb(35, 35, 35);
   --background-header-items: rgb(39, 39, 39);
   --border-color: rgb(255,204,71);
@@ -147,7 +148,7 @@ main{
 #content{
   display: flex;
   flex: 1;
-  background-color: rgb(24, 24, 24);
+  background-color:var(--background-content);
   border-radius: 20px 20px 0px 20px;
   height: 91vh;
   overflow-y: auto;
