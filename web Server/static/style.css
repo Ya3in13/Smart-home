@@ -1,4 +1,4 @@
-:root {
+/*:root {
   --background: rgb(24, 24, 24);
   --background-content:rgb(24, 24, 24);
   --background-header: rgb(35, 35, 35);
@@ -6,6 +6,16 @@
   --border-color: rgb(255,204,71);
   --text-color : rgb(255,255,255);
   --header-height : 7vh;
+  --border-radius: 20px;
+}*/
+:root {
+  --background: rgb(1, 40, 135);
+  --background-content:rgb(24, 24, 24);
+  --background-header: rgb(12, 12, 12);
+  --background-header-items: rgb(10, 10, 10);
+  --border-color: rgb(255,204,71);
+  --text-color : rgb(255,255,255);
+  --header-height : 8vh;
   --border-radius: 20px;
 }
 * {
@@ -31,7 +41,7 @@ header {
   margin: 1vh 1vh 0vh 1vh;
   padding: 0px 1vh;
   height: var(--header-height);
-  border-radius: 20px 20px 0px 20px; 
+  border-radius: 20px 20px 0px 0px; 
   background: var(--background-header);
 }
 nav {
@@ -149,7 +159,7 @@ main{
   display: flex;
   flex: 1;
   background-color:var(--background-content);
-  border-radius: 20px 20px 0px 20px;
+  border-radius: 00px 20px 0px 20px;
   height: 91vh;
   overflow-y: auto;
 }
