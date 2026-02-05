@@ -1,4 +1,4 @@
-/*:root {
+:root {
   --background: rgb(24, 24, 24);
   --background-content:rgb(24, 24, 24);
   --background-header: rgb(35, 35, 35);
@@ -7,8 +7,8 @@
   --text-color : rgb(255,255,255);
   --header-height : 7vh;
   --border-radius: 20px;
-}*/
-:root {
+}
+/*:root {
   --background: rgb(1, 40, 135);
   --background-content:rgb(24, 24, 24);
   --background-header: rgb(12, 12, 12);
@@ -17,7 +17,7 @@
   --text-color : rgb(255,255,255);
   --header-height : 8vh;
   --border-radius: 20px;
-}
+}*/
 * {
   margin: 0;
   padding: 0;
@@ -175,13 +175,22 @@ main{
 
 .live {
   flex: 1;
-  min-width: 400px;                   /* حداقل عرض هر دوربین */
+  min-width: 300px;                   /* حداقل عرض هر دوربین */
   max-width: 500px;                   /* حداکثر عرض (اختیاری) */
+  height: fit-content;
   border-radius: 30px;
   background-color: var(--background-header-items);
 }
-
+.live:hover{
+  border: 1px solid var(--border-color);
+}
 .live video {
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  object-fit: cover;
+}
+.live img {
   width: 100%;
   height: auto;
   border-radius: 28px;
