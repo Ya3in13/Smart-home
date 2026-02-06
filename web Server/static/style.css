@@ -1,4 +1,4 @@
-:root {
+/*:root {
   --background: rgb(24, 24, 24);
   --background-content:rgb(24, 24, 24);
   --background-header: rgb(35, 35, 35);
@@ -7,9 +7,9 @@
   --text-color : rgb(255,255,255);
   --header-height : 7vh;
   --border-radius: 20px;
-}
-/*:root {
-  --background: rgb(1, 40, 135);
+}*/
+:root {
+  --background: rgb(10, 10, 10);
   --background-content:rgb(24, 24, 24);
   --background-header: rgb(12, 12, 12);
   --background-header-items: rgb(10, 10, 10);
@@ -17,7 +17,7 @@
   --text-color : rgb(255,255,255);
   --header-height : 8vh;
   --border-radius: 20px;
-}*/
+}
 * {
   margin: 0;
   padding: 0;
@@ -125,15 +125,13 @@ main{
   width: 158px;
   text-decoration: none;
   font-size: 18px;
-  border-radius: 20px; 
-  transition: all 0.3s ease;
+  border-radius: 10px; 
 }
 .sidebar-nav a:hover{
-  background: var(--background-header);
+  background: var(--background-content);
   color: var(--border-color) ;
   border: 1px solid var(--border-color);
-  transition: all 2s ease;
-  border-radius: 20px; 
+  transition: all .1s ease;
   align-items: center;
 }
 #toggleBtn{
@@ -180,6 +178,7 @@ main{
   height: fit-content;
   border-radius: 30px;
   background-color: var(--background-header-items);
+  border: 1px solid var(--background-header-items);
 }
 .live:hover{
   border: 1px solid var(--border-color);
@@ -195,6 +194,7 @@ main{
   height: auto;
   border-radius: 28px;
   object-fit: cover;
+  
 }
 .live p{
   justify-self: center;
