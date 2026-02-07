@@ -10,14 +10,25 @@
 }*/
 :root {
   --background: rgb(10, 10, 10);
-  --background-content:rgb(24, 24, 24);
-  --background-header: rgb(12, 12, 12);
-  --background-header-items: rgb(10, 10, 10);
+  --background-content:rgb(24, 24, 24,0.3);
+  --background-header: rgb(12, 12, 12,0.95);
+  --background-header-items: rgb(10, 10, 10,0.6);
+  --border-color: rgb(255,204,71);
+  --text-color : rgb(255,255,255);
+  --header-height : 8vh;
+  --main-height : 90vh;
+  --border-radius: 20px;
+}
+/*:root {
+  --background: rgb(101, 19, 19);
+  --background-content:rgba(232, 249, 1, 0.3);
+  --background-header: rgba(0, 41, 174, 0.95);
+  --background-header-items: #ec0fce99;
   --border-color: rgb(255,204,71);
   --text-color : rgb(255,255,255);
   --header-height : 8vh;
   --border-radius: 20px;
-}
+}*/
 * {
   margin: 0;
   padding: 0;
@@ -27,10 +38,11 @@ body {
   font-family: 'Vazirmatn', 'Poppins', sans-serif;
   background-color: var(--background);
   color: var(--text-color);
-  background-image: url(img/fjr0.png);
+  background-image: url(img/background01.jpg);
   background-repeat: no-repeat;
   background-position: center ;
   background-size: cover;
+  margin: 1vh 1vh 1vh 1vh;
 }
 
 header {
@@ -95,8 +107,9 @@ nav a:hover {
 main{
   display: flex;
   background-color: var(--background-header);
-  border-radius: 20px 00px 20px 20px;
+  border-radius: 00px 00px 20px 20px;
   margin: 0vh 1vh;
+  height: var(--main-height);
 }
 
 .sidebar-nav{
@@ -108,7 +121,7 @@ main{
   flex-direction: column;
   border-radius: 0px 0px 20px 20px; 
   align-items: center;
-  height: 91vh;
+  height: var(--main-height);
   overflow-y: auto;
 }
 .sidebar-nav a{
@@ -157,8 +170,8 @@ main{
   display: flex;
   flex: 1;
   background-color:var(--background-content);
-  border-radius: 00px 20px 0px 20px;
-  height: 91vh;
+  border-radius: 00px 10px 0px 20px;
+  height: var(--main-height);
   overflow-y: auto;
 }
 .cams {
