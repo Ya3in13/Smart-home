@@ -1,0 +1,10 @@
+Added Component: Designator=Q?(SOT23_3)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "C945, 2SC945"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "50v, 0.15A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "200mW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "C945"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Sheet1 Member=Component Q? C945
