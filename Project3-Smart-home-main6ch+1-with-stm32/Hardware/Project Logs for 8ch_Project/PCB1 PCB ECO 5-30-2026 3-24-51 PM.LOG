@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=GND Pin=J5-4
+Change Component Footprint: Designator=J5 Old Footprint=HDR_F_1X5 New Footprint=HDR_F_1X7
+Change Component Comment : Designator=J5 Old Comment=HDRF5 New Comment=HDRF7
+Change component parameters: Designator = "J5" ("J5"); Footprint = "HDR_F_1X5"; UniqueID = "\YPGSPEGB" ("\YPGSPEGB")
+Change component parameters (AddParameter): Name = "ASSEMBLY"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF_P#"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PRICE"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = "HDRF7"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=PR12V Pin=J5-4
+Added Pin To Net: NetName=GND Pin=J5-6
+Added Pin To Net: NetName=4.2V Pin=J5-7
